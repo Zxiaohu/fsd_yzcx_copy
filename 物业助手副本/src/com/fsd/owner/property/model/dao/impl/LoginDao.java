@@ -7,6 +7,10 @@ import com.fsd.owner.property.tools.HttpTools;
 import com.lidroid.xutils.http.RequestParams;
 import com.lidroid.xutils.http.ResponseInfo;
 
+/**
+ * @author xiaohu
+ * 
+ */
 public class LoginDao extends SFetchInfoDao {
 
 	private LoginListener lister;

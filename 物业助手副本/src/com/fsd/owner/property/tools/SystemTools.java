@@ -71,8 +71,10 @@ public class SystemTools {
 		View toastRoot=null;
 		Toast toast=new Toast(context);
 		if(type==1){
+			//加载布局
 			toastRoot =View.inflate(context,R.layout.toast_layout_info, null);
 			toast.setView(toastRoot);		
+			//布局中的textview
 			TextView tv=(TextView)toastRoot.findViewById(R.id.tv_toast_info);  
 			tv.setText(content); 
 		}else{

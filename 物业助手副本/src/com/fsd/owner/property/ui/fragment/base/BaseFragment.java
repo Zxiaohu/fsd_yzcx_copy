@@ -38,13 +38,14 @@ public abstract class  BaseFragment extends Fragment{
 		mRootView = initView(inflater);
 		return mRootView;
 	}
-	
 	@Override
-	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		super.onActivityResult(requestCode, resultCode, data);
+		super.onActivityCreated(savedInstanceState);
 		initData();
 	}
+	
+	
 	
 	@Override
 	public void onDetach() {
