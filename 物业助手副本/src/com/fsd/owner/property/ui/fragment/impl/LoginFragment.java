@@ -18,6 +18,7 @@ import com.lidroid.xutils.view.annotation.ViewInject;
  * 
  * LoginFragment
  * @author zxh
+ * 2016年2月1日10:44:39
  * 登录的fragment
  *
  */
@@ -79,7 +80,7 @@ public class LoginFragment extends BaseFragment implements OnClickListener,ILogi
 	@Override
 	public void gotoRegisterFrg() {
 		// TODO Auto-generated method stub
-		
+		//跳转注册一页
 	}
 
 }

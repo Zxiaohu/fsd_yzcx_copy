@@ -11,6 +11,12 @@
         android:text="选择房号"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <com.fsd.owner.property.ui.view.roomchoose.RoomChooser
+        android:id="@+id/roomch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </com.fsd.owner.property.ui.view.roomchoose.RoomChooser>
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
@@ -23,8 +29,7 @@
         android:layout_height="wrap_content"
         android:text="姓名:"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-    
-    
+
     <TextView
         android:id="@+id/tv_phonenum"
         android:layout_width="match_parent"

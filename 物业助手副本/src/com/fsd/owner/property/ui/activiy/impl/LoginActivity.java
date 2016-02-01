@@ -38,7 +38,7 @@ public class LoginActivity extends BaseActivity {
 		initFragments();
 		
 		//初始化 fragment适配器
-		adapter=new MyPagerAdater(getSupportFragmentManager(), mFragments);
+		adapter=new MyPagerAdater(getSupportFragmentManager(),mFragments);
 		
 		if(adapter!=null){
 			vp_content.setAdapter(adapter);

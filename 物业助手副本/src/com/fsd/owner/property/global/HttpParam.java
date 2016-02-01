@@ -1,6 +1,14 @@
 package com.fsd.owner.property.global;
 
 public enum HttpParam {
+	/**管理处id**/
+	PrecinctID("PrecinctID"),
+	/**大楼处id**/
+	BuildingID("BuildingID"),
+	/**单元处id**/
+	FloorID("FloorID"),
+	/***房间id**/
+	RoomID("RoomID"),
 	/**手机号**/
 	UNAME("uname"),
 	/**验证登录的密码**/
