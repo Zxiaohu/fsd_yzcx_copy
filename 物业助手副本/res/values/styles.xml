@@ -7,12 +7,18 @@
 
 
     -->
-    <style name="AppBaseTheme" parent="android:Theme.Light"></style>
+    <style name="AppBaseTheme" parent="android:Theme.Holo.Light"></style>
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <item name="android:windowNoTitle">true</item>
     </style>
-
+   
+	<style name="style_sp_base">
+	    <item name="android:spinnerMode">dropdown</item>
+	    <item name="android:layout_height">@dimen/dimen_720height</item>
+	    <item name="android:background">@drawable/sp_bg</item>
+	    <item name="android:layout_marginBottom">@dimen/dimen_720minspacing</item>
+	</style>
 
 </resources>

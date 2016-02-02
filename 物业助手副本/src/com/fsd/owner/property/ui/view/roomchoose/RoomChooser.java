@@ -1,0 +1,209 @@
+package com.fsd.owner.property.ui.view.roomchoose;
+
+import com.fsd.owner.property.R;
+import com.fsd.owner.property.tools.SystemTools;
+import com.fsd.owner.property.ui.view.roomchoose.RoomInfo;
+import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.view.annotation.ViewInject;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.util.AttributeSet;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
+
+@SuppressWarnings("all")//消除所有的警告信息
+public class RoomChooser extends LinearLayout implements IRoomChView{
+	
+	private View mRootView;//根布局
+	@ViewInject(R.id.sp_precinct)
+	private Spinner sp_precinct;
+	@ViewInject(R.id.sp_floor)
+	private Spinner sp_floor;
+	@ViewInject(R.id.sp_unit)
+	private Spinner sp_unit;
+	@ViewInject(R.id.sp_room)
+	private Spinner sp_room;
+	@ViewInject(R.id.ly_content)
+	private LinearLayout layout;
+	private RoomChPresenter presenter;
+	
+	private boolean[] loading={false,false,false,false}; 
+	
+	public RoomChooser(Context context) {
+		super(context);
+		// TODO Auto-generated constructor stub
+		initView(context);
+	}
+	public RoomChooser(Context context, AttributeSet attrs) {
+		super(context, attrs);
+		// TODO Auto-generated constructor stub
+		initView(context);
+	}
+	
+	public RoomChooser(Context context, AttributeSet attrs, int defStyle) {
+		super(context, attrs, defStyle);
+		// TODO Auto-generated constructor stub
+		initView(context);
+	}
+	/**初始化view**/
+	private void initView(Context context){
+		mRootView = View.inflate(context, R.layout.room_choose,this);
+		ViewUtils.inject(this,mRootView);
+		presenter = new RoomChPresenter(this, context);
+	}
+	
+	public void sartRequest(){
+		presenter.fetchData();
+	}
+	
+	private String pid;
+	private String fid;
+	private String uid;
+	private String rid;
+	
+	@Override
+	public void onPrecinctDataSuccess(final String[] precinctid,
+			final String[] precinctnames) {
+		// TODO Auto-generated method stub
+		
+		//给管理处填充数据
+		sp_precinct.setAdapter(new ArrayAdapter<String>(
+				getContext(),
+				android.R.layout.simple_expandable_list_item_1,
+				precinctnames));
+		//监听选中事件
+		sp_precinct.setOnItemSelectedListener(new OnItemSelectedListener() {
+	
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				pid = precinctid[position];
+				//获取管理区下的大楼
+				presenter.fetchFloor(precinctid[position]);
+			}
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+	}
+	
+	@Override
+	public void OnFloorDataSuccess(final String[] floorsid, String[] floorsname) {
+		// TODO Auto-generated method stub
+		//给大楼填充数据
+		sp_floor.setAdapter(new ArrayAdapter<String>(getContext(),
+				android.R.layout.simple_expandable_list_item_1,floorsname));
+		sp_floor.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				fid = floorsid[position];
+				//获取单元的信息
+				presenter.fetchUnits();
+				
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+	}
+	
+	@Override
+	public void onUnitDataSuccess(final String[] unitsid, String[] unitsname) {
+		// TODO Auto-generated method stub
+		sp_unit.setAdapter(new ArrayAdapter<String>(getContext(),
+				android.R.layout.simple_expandable_list_item_1,unitsname));
+		sp_unit.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				uid=unitsid[position];
+				presenter.fetchRoomInfo();
+			}
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+	}
+	@Override
+	public void onRoomDataSuccess(final String[] roomsid, String[] roomsname) {
+		// TODO Auto-generated method stub
+		sp_room.setAdapter(new ArrayAdapter<String>(getContext(),
+				android.R.layout.simple_expandable_list_item_1,roomsid));
+		sp_room.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				rid=roomsid[position];
+				//获取用户的所有数据的操作
+				presenter.getHouseInfo();
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+	}
+	@Override
+	public String getPrecinctID() {
+		// TODO Auto-generated method stub
+		return pid;
+	}
+	@Override
+	public String getFloorID() {
+		// TODO Auto-generated method stub
+		return fid;
+	}
+	@Override
+	public String getUnitID() {
+		// TODO Auto-generated method stub
+		return uid;
+	}
+	@Override
+	public String getRoomID() {
+		// TODO Auto-generated method stub
+		return rid;
+	}
+	@Override
+	public void isloading(boolean isloading) {
+		// TODO Auto-generated method stub
+		if(isloading){
+			layout.setVisibility(View.VISIBLE);
+		}else{
+			layout.setVisibility(View.GONE);
+		}
+	}
+	private OnRoomInfoCompleteListener listener;
+	
+	public void setCompleteListener(OnRoomInfoCompleteListener listener){
+		this.listener=listener;
+	}
+	@Override
+	public void onRoomComplete(RoomInfo roomInfo) {
+		// TODO Auto-generated method stub
+		listener.onRoomInfoSuccess(roomInfo);
+	}
+	public interface OnRoomInfoCompleteListener{
+		void onRoomInfoSuccess(RoomInfo roomInfo);
+	}
+}
