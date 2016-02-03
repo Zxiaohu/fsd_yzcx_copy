@@ -7,4 +7,6 @@ public interface IReginsterView {
 	String getUserPhoneNum();
 	/**获取用户输入的验证码**/
 	String getCheckNum();
+	/**验证成功**/
+	void CheckSuccess();
 }

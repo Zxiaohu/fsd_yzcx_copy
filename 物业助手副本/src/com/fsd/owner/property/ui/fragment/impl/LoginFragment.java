@@ -1,5 +1,6 @@
 package com.fsd.owner.property.ui.fragment.impl;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -41,7 +42,7 @@ public class LoginFragment extends BaseFragment implements OnClickListener,ILogi
 	}
 
 	@Override
-	public void initData() {
+	public void initData(Bundle savedInstanceState) {
 		persenter = new LoginPersenter(this);
 		btn_login.setOnClickListener(this);
 	}

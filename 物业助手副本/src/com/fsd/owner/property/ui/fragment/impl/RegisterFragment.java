@@ -1,4 +1,5 @@
 package com.fsd.owner.property.ui.fragment.impl;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -10,6 +11,7 @@ import com.fsd.owner.property.R;
 import com.fsd.owner.property.global.SPParam;
 import com.fsd.owner.property.presenter.fragment.impl.RegisterPresenter;
 import com.fsd.owner.property.tools.SharedPfTools;
+import com.fsd.owner.property.ui.activiy.impl.LoginActivity;
 import com.fsd.owner.property.ui.fragment.IReginsterView;
 import com.fsd.owner.property.ui.fragment.base.BaseFragment;
 import com.fsd.owner.property.ui.view.button.TimeButton;
@@ -61,11 +63,16 @@ public class RegisterFragment extends BaseFragment implements IReginsterView, On
 
 
 	@Override
-	public void initData() {
+	public void initData(Bundle savedInstanceState) {
+		
+		btn_checkNum.onCreate(savedInstanceState);
+		btn_checkNum.setTextAfter("秒").setTextBefore("验证码").setLenght(60 * 1000);
 		//初始化控制器
 		presenter = new RegisterPresenter(this, mContext);
 		// TODO Auto-generated method stub
 		tv_choose_house.setOnClickListener(this);
+		btn_checkNum.setOnClickListener(this);
+		btn_rel.setOnClickListener(this);
 		//选择房号完成的事件
 		roomChooser.setCompleteListener(this);
 
@@ -125,12 +132,20 @@ public class RegisterFragment extends BaseFragment implements IReginsterView, On
 		if(telnumber.length()==11){
 			SharedPfTools.insertData(SPParam.PhoneNum,telnumber);
 			String star=telnumber.substring(0,3);
-			String end=telnumber.substring(telnumber.length()-5, telnumber.length()-1);
+			String end=telnumber.substring(telnumber.length()-4, telnumber.length());
 			tv_phonenum.setText(star+"****"+end);
 		}else{
 			tv_phonenum.setText(telnumber);
 		}
 		//presenter.getUserInfo();
+	}
+
+
+	@Override
+	public void CheckSuccess() {
+		// TODO Auto-generated method stub
+		//跳转到登录界面
+		((LoginActivity)mContext).vp_content.setCurrentItem(0);
 	}
 
 

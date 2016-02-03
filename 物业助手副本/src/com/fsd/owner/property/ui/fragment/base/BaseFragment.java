@@ -21,8 +21,9 @@ public abstract class  BaseFragment extends Fragment{
 	/***初始化View***/
 	abstract public View initView(LayoutInflater inflater);
 	
-	/**初始化数据**/
-	abstract public void initData();
+	/**初始化数据
+	 * @param savedInstanceState **/
+	abstract public void initData(Bundle savedInstanceState);
 	
 	@Override
 	public void onAttach(Activity activity) {
@@ -42,7 +43,7 @@ public abstract class  BaseFragment extends Fragment{
 	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onActivityCreated(savedInstanceState);
-		initData();
+		initData(savedInstanceState);
 	}
 	
 	

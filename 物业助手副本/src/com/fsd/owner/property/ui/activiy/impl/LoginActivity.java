@@ -22,7 +22,7 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 public class LoginActivity extends BaseActivity {
 	
 	@ViewInject(R.id.vp_content)
-	private ViewPager vp_content;
+	public ViewPager vp_content;
 	
 	List<BaseFragment> mFragments;
 	
@@ -53,7 +53,6 @@ public class LoginActivity extends BaseActivity {
 		RegisterFragment registerFragment = new RegisterFragment();
 		mFragments.add(loginFragment);
 		mFragments.add(registerFragment);
-		//return mFragments;
 	}
 	
 	

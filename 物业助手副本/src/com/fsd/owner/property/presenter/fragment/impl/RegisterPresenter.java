@@ -39,8 +39,11 @@ public class RegisterPresenter implements RegsiterDaoListener {
 				//生成验证码并执行储存到本地
 				String yzm=DataTools.get4Random();
 				SharedPfTools.insertData(SPParam.YZM,yzm);
+				
+				SystemTools.toastI(yzm);
+				
 				//执行验证操作哦
-				regsiterDao.setUnameYzm(userPhoneNum, yzm).sendHttp();
+				//regsiterDao.setUnameYzm(userPhoneNum, yzm).sendHttp();
 			}
 		}catch(Exception exception){
 			//执行验证码操作时系统异常
@@ -51,7 +54,7 @@ public class RegisterPresenter implements RegsiterDaoListener {
 	@Override
 	public void onSmsCheckReadly(String respone) {
 		// TODO Auto-generated method stub
-		
+		SystemTools.toastI(respone);
 	}
 	/**注册操作**/
 	public void executeRel() {
@@ -66,7 +69,8 @@ public class RegisterPresenter implements RegsiterDaoListener {
 		}else if(!checkNum.equals(checkrelNum)){
 			SystemTools.fail("验证失败");
 		}else{//验证成功
-			
+			//跳转到 登录界面
+			mView.CheckSuccess();
 		}
 	}
 }
