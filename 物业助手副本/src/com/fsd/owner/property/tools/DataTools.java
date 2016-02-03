@@ -1,5 +1,7 @@
 package com.fsd.owner.property.tools;
 
+import java.util.Random;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -64,5 +66,20 @@ public class DataTools {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	/**
+	 * 生成4位数的验证码
+	 * @return
+	 */
+	public static String get4Random(){
+
+		int max=9999;
+		int min=1000;
+		Random random = new Random();
+
+		int s = random.nextInt(max)%(max-min+1) + min;
+
+		return s+"";
 	}
 }

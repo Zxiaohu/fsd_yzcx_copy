@@ -46,9 +46,10 @@ public abstract class SFetchInfoDao extends RequestCallBack<String>{
 	
 	
 	/**设置是否显示对话框**/
-	public void setShowDialog(boolean isShowDialog,Context context){
+	public SFetchInfoDao setShowDialog(boolean isShowDialog,Context context){
 		this.mContext = context;
 		this.isShowDialog = isShowDialog;
+		return this;
 	}
 	
 

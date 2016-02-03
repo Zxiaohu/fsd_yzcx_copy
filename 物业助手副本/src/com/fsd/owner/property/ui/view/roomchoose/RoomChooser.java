@@ -57,6 +57,7 @@ public class RoomChooser extends LinearLayout implements IRoomChView{
 		presenter = new RoomChPresenter(this, context);
 	}
 	
+	/**启动控件**/
 	public void sartRequest(){
 		presenter.fetchData();
 	}
