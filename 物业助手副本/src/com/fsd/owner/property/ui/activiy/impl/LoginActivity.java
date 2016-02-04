@@ -7,11 +7,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
+
 import com.fsd.owner.property.R;
 import com.fsd.owner.property.ui.activiy.base.BaseActivity;
 import com.fsd.owner.property.ui.fragment.base.BaseFragment;
 import com.fsd.owner.property.ui.fragment.impl.LoginFragment;
 import com.fsd.owner.property.ui.fragment.impl.RegisterFragment;
+import com.fsd.owner.property.ui.view.MyViewPager;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 /***
@@ -19,10 +22,10 @@ import com.lidroid.xutils.view.annotation.ViewInject;
  * @author zxh
  * 主界面activity
  */
-public class LoginActivity extends BaseActivity {
+public class LoginActivity extends BaseActivity implements OnPageChangeListener {
 	
 	@ViewInject(R.id.vp_content)
-	public ViewPager vp_content;
+	public MyViewPager vp_content;
 	
 	List<BaseFragment> mFragments;
 	
@@ -44,6 +47,7 @@ public class LoginActivity extends BaseActivity {
 			vp_content.setAdapter(adapter);
 		}
 		
+		vp_content.setCanScroll(false).setOnPageChangeListener(this);
 	}
 
 	private void initFragments() {
@@ -82,6 +86,29 @@ public class LoginActivity extends BaseActivity {
 		public int getCount() {
 			// TODO Auto-generated method stub
 			return fragments.size();
+		}
+	}
+
+
+	@Override
+	public void onPageScrollStateChanged(int arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onPageScrolled(int arg0, float arg1, int arg2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onPageSelected(int arg0) {
+		// TODO Auto-generated method stub
+		if(arg0==0){
+			vp_content.setCanScroll(false);
+		}else{
+			vp_content.setCanScroll(true);
 		}
 	}
 }

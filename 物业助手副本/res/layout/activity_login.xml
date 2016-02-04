@@ -6,7 +6,7 @@
     android:fitsSystemWindows="true"
     android:paddingTop="20dp"
     android:orientation="vertical" >
-    <android.support.v4.view.ViewPager
+    <com.fsd.owner.property.ui.view.MyViewPager
         android:id="@+id/vp_content"
         android:layout_width="match_parent"
         android:layout_height="0dp"

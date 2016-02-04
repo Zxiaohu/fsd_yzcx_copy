@@ -1,5 +1,6 @@
 package com.fsd.owner.property.ui.fragment.impl;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,8 @@ import com.fsd.owner.property.R;
 import com.fsd.owner.property.presenter.fragment.impl.LoginPersenter;
 import com.fsd.owner.property.tools.LogUtil;
 import com.fsd.owner.property.tools.SystemTools;
+import com.fsd.owner.property.ui.activiy.impl.LoginActivity;
+import com.fsd.owner.property.ui.activiy.impl.MainActivity;
 import com.fsd.owner.property.ui.fragment.ILoginView;
 import com.fsd.owner.property.ui.fragment.base.BaseFragment;
 import com.lidroid.xutils.ViewUtils;
@@ -31,6 +34,8 @@ public class LoginFragment extends BaseFragment implements OnClickListener,ILogi
 	private EditText et_pwd;
 	@ViewInject(R.id.btn_login)
 	private Button btn_login;
+	@ViewInject(R.id.btn_rel)
+	private Button btn_rel;
 	private LoginPersenter persenter;
 	
 	@Override
@@ -45,6 +50,7 @@ public class LoginFragment extends BaseFragment implements OnClickListener,ILogi
 	public void initData(Bundle savedInstanceState) {
 		persenter = new LoginPersenter(this);
 		btn_login.setOnClickListener(this);
+		btn_rel.setOnClickListener(this);
 	}
 
 	@Override
@@ -54,6 +60,9 @@ public class LoginFragment extends BaseFragment implements OnClickListener,ILogi
 		switch (v.getId()) {
 		case R.id.btn_login://登录
 			persenter.doLogin();
+			break;
+		case R.id.btn_rel:
+			((LoginActivity)mContext).vp_content.setCurrentItem(1);
 			break;
 		default:
 			break;
@@ -75,7 +84,7 @@ public class LoginFragment extends BaseFragment implements OnClickListener,ILogi
 	@Override
 	public void onLoginSuccess() {
 		// TODO Auto-generated method stub
-		SystemTools.toastI("dddddddddddd");
+		startActivity(new Intent(mContext,MainActivity.class));
 	}
 
 	@Override
