@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
 import com.fsd.owner.property.R;
 import com.fsd.owner.property.model.bean.LoginUserInfo;
 import com.fsd.owner.property.presenter.fragment.impl.LoginPersenter;
@@ -36,8 +38,8 @@ public class LoginFragment extends BaseFragment implements OnClickListener,ILogi
 	private EditextDelete et_pwd;
 	@ViewInject(R.id.btn_login)
 	private Button btn_login;
-	@ViewInject(R.id.btn_rel)
-	private Button btn_rel;
+	@ViewInject(R.id.tv_rel)
+	private TextView btn_rel;
 	private LoginPersenter persenter;
 	
 	@Override
@@ -64,7 +66,7 @@ public class LoginFragment extends BaseFragment implements OnClickListener,ILogi
 		case R.id.btn_login://登录
 			persenter.doLogin();
 			break;
-		case R.id.btn_rel:
+		case R.id.tv_rel:
 			((LoginActivity)mContext).vp_content.setCurrentItem(1);
 			break;
 		default:

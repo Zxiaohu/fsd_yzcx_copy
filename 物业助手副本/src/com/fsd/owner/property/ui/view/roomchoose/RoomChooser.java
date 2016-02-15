@@ -2,6 +2,7 @@ package com.fsd.owner.property.ui.view.roomchoose;
 
 import com.fsd.owner.property.R;
 import com.fsd.owner.property.tools.SystemTools;
+import com.fsd.owner.property.ui.adapter.impl.RoomSpAdapter;
 import com.fsd.owner.property.ui.view.roomchoose.RoomInfo;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
@@ -20,19 +21,23 @@ import android.widget.Spinner;
 public class RoomChooser extends LinearLayout implements IRoomChView{
 	
 	private View mRootView;//根布局
+	//管理处
 	@ViewInject(R.id.sp_precinct)
 	private Spinner sp_precinct;
+	//大楼
 	@ViewInject(R.id.sp_floor)
 	private Spinner sp_floor;
+	//楼层
 	@ViewInject(R.id.sp_unit)
 	private Spinner sp_unit;
+	//房间
 	@ViewInject(R.id.sp_room)
 	private Spinner sp_room;
+	
 	@ViewInject(R.id.ly_content)
 	private LinearLayout layout;
 	private RoomChPresenter presenter;
 	
-	private boolean[] loading={false,false,false,false}; 
 	
 	public RoomChooser(Context context) {
 		super(context);
@@ -73,10 +78,13 @@ public class RoomChooser extends LinearLayout implements IRoomChView{
 		// TODO Auto-generated method stub
 		
 		//给管理处填充数据
-		sp_precinct.setAdapter(new ArrayAdapter<String>(
-				getContext(),
-				android.R.layout.simple_expandable_list_item_1,
-				precinctnames));
+//		sp_precinct.setAdapter(new ArrayAdapter<String>(
+//				getContext(),
+//				android.R.layout.simple_expandable_list_item_1,
+//				precinctnames));
+		
+		RoomSpAdapter adapter = new RoomSpAdapter(precinctnames, getContext());
+		sp_precinct.setAdapter(adapter);
 		//监听选中事件
 		sp_precinct.setOnItemSelectedListener(new OnItemSelectedListener() {
 	
@@ -99,8 +107,9 @@ public class RoomChooser extends LinearLayout implements IRoomChView{
 	public void OnFloorDataSuccess(final String[] floorsid, String[] floorsname) {
 		// TODO Auto-generated method stub
 		//给大楼填充数据
-		sp_floor.setAdapter(new ArrayAdapter<String>(getContext(),
-				android.R.layout.simple_expandable_list_item_1,floorsname));
+		RoomSpAdapter adapter = new RoomSpAdapter(floorsname, getContext());
+		sp_floor.setAdapter(adapter);
+		
 		sp_floor.setOnItemSelectedListener(new OnItemSelectedListener() {
 
 			@Override
@@ -124,8 +133,9 @@ public class RoomChooser extends LinearLayout implements IRoomChView{
 	@Override
 	public void onUnitDataSuccess(final String[] unitsid, String[] unitsname) {
 		// TODO Auto-generated method stub
-		sp_unit.setAdapter(new ArrayAdapter<String>(getContext(),
-				android.R.layout.simple_expandable_list_item_1,unitsname));
+		RoomSpAdapter adapter = new RoomSpAdapter(unitsname, getContext());
+		sp_unit.setAdapter(adapter);
+		
 		sp_unit.setOnItemSelectedListener(new OnItemSelectedListener() {
 
 			@Override
@@ -147,8 +157,10 @@ public class RoomChooser extends LinearLayout implements IRoomChView{
 	@Override
 	public void onRoomDataSuccess(final String[] roomsid, String[] roomsname) {
 		// TODO Auto-generated method stub
-		sp_room.setAdapter(new ArrayAdapter<String>(getContext(),
-				android.R.layout.simple_expandable_list_item_1,roomsid));
+		
+		RoomSpAdapter adapter = new RoomSpAdapter(roomsid, getContext());
+		sp_room.setAdapter(adapter);
+		
 		sp_room.setOnItemSelectedListener(new OnItemSelectedListener() {
 
 			@Override

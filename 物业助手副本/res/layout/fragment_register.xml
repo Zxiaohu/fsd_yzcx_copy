@@ -2,68 +2,81 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@color/blue1" >
 
-    <TextView
-        android:id="@+id/tv_choose_house"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="选择房号"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_height="0dp"
+        android:layout_weight="0.382"
+        android:orientation="vertical" >
 
-    <com.fsd.owner.property.ui.view.roomchoose.RoomChooser
-        android:id="@+id/roomch"
+        <TextView
+            android:id="@+id/tv_choose_house"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="选择房号"
+            android:textSize="@dimen/medium" />
+
+        <com.fsd.owner.property.ui.view.roomchoose.RoomChooser
+            android:id="@+id/roomch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+        </com.fsd.owner.property.ui.view.roomchoose.RoomChooser>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="用户信息" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="姓名:" />
+
+        <TextView
+            android:id="@+id/tv_phonenum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="手机号" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-    </com.fsd.owner.property.ui.view.roomchoose.RoomChooser>
+        android:layout_height="0dp"
+        android:layout_weight="0.618"
+        android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="用户信息" />
+        <EditText
+            android:id="@+id/et_phonenum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="请输入您的手机号:" >
 
-    <TextView
-        android:id="@+id/tv_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="姓名:"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+            <requestFocus />
+        </EditText>
 
-    <TextView
-        android:id="@+id/tv_phonenum"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="手机号"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        <com.fsd.owner.property.ui.view.button.TimeButton
+            android:id="@+id/btn_checknum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-    <EditText
-        android:id="@+id/et_phonenum"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="请输入您的手机号:"
-        android:ems="10" >
+        <EditText
+            android:id="@+id/et_checknum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="请输入验证码"
+            android:inputType="numberPassword" />
 
-        <requestFocus />
-    </EditText>
-
-   <com.fsd.owner.property.ui.view.button.TimeButton
-        android:id="@+id/btn_checknum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-   <EditText
-       android:id="@+id/et_checknum"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:ems="10"
-       android:hint="请输入验证码"
-       android:inputType="numberPassword" />
-
-   <Button
-       android:id="@+id/btn_rel"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:text="注册" />
+        <Button
+            android:id="@+id/btn_rel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="注册" />
+    </LinearLayout>
 
 </LinearLayout>
