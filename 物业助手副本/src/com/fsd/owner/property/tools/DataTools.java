@@ -7,6 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.fsd.owner.property.global.JsonParam;
+import com.fsd.owner.property.model.bean.LoginUserInfo;
 import com.fsd.owner.property.model.bean.TipInfo;
 import com.google.gson.Gson;
 
@@ -17,11 +18,11 @@ public class DataTools {
 	public static String getJsonObj(String str){
 		return str.substring(1,str.length()-1);
 	}
-	public static TipInfo getTipInfo(String str){
-		TipInfo info = new Gson().fromJson(getJsonObj(str),TipInfo.class);
-		return info;
+	@SuppressWarnings("unchecked")
+	public static Object getTipInfo(String str,Class class1){
+		return new Gson().fromJson(getJsonObj(str),class1);
 	}
-
+	
 	/**将json转为2维数组**/
 	public static String[][] getArr24Json(String jsonstr,JsonParam key,JsonParam name){
 		LogUtil.e("json",jsonstr);

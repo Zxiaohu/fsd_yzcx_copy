@@ -1,4 +1,5 @@
 package com.fsd.owner.property.presenter.fragment.impl;
+import com.fsd.owner.property.model.bean.LoginUserInfo;
 import com.fsd.owner.property.model.bean.TipInfo;
 import com.fsd.owner.property.model.dao.impl.LoginDao;
 import com.fsd.owner.property.model.dao.impl.LoginDao.LoginListener;
@@ -29,31 +30,44 @@ public class LoginPersenter implements ILoginPersenter, LoginListener {
 	@Override
 	public void doLogin() {
 		// TODO Auto-generated method stub
-		String name=mView.getUserName();
-		String pwd =mView.getUserPwd();
-		//非空验证
-		LogUtil.e("test","我登录了");
-		if(CheckTools.isEmpty(new String[]{name,pwd})){
-			SystemTools.toastI("请输入完整信息");
-		}else{
-			
-			//服务器验证
-			loginDao.setNameAndPwd(new String[]{name,pwd});
-			//发送验证
-			loginDao.sendHttp();
-		}
 
+		try{
+
+			String name=mView.getUserName();
+			String pwd =mView.getUserPwd();
+			//非空验证
+			if(CheckTools.isEmpty(new String[]{name,pwd})){
+				SystemTools.toastI("请输入完整信息");
+			}else{
+				//服务器验证
+				loginDao.setNameAndPwd(new String[]{name,pwd});
+				//发送验证
+				loginDao.sendHttp();
+			}
+		}catch(Exception exception){
+			SystemTools.fail("登录异常");
+		}
 	}
 
 	@Override
 	public void onLoginResonseReal(String result) {
 		// TODO Auto-generated method stub
-		/**处理一下结果判断是不是成功了**/
-		TipInfo tipInfo = DataTools.getTipInfo(result);
-		if(tipInfo.getFlag()==1){//成功了
-			mView.onLoginSuccess();
+		
+		LogUtil.e("login",result);
+
+		//处理一下结果判断是不是成功了
+		LoginUserInfo UserInfo = (LoginUserInfo) DataTools.getTipInfo(result,LoginUserInfo.class);
+		
+		if(UserInfo.getFlag()==1){//成功了
+			
+			//将登录的信息储存起来
+			
+			
+			
+			mView.onLoginSuccess(UserInfo);
+			
 		}else{//失败的操作
-			SystemTools.fail(tipInfo.getInfo());
+			SystemTools.fail(UserInfo.getInfo());
 		}
 	}
 }

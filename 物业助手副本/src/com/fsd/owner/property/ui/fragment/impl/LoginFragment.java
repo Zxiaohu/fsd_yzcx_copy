@@ -8,6 +8,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import com.fsd.owner.property.R;
+import com.fsd.owner.property.model.bean.LoginUserInfo;
 import com.fsd.owner.property.presenter.fragment.impl.LoginPersenter;
 import com.fsd.owner.property.tools.LogUtil;
 import com.fsd.owner.property.tools.SystemTools;
@@ -15,6 +16,7 @@ import com.fsd.owner.property.ui.activiy.impl.LoginActivity;
 import com.fsd.owner.property.ui.activiy.impl.MainActivity;
 import com.fsd.owner.property.ui.fragment.ILoginView;
 import com.fsd.owner.property.ui.fragment.base.BaseFragment;
+import com.fsd.owner.property.ui.view.et.EditextDelete;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
@@ -29,9 +31,9 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 public class LoginFragment extends BaseFragment implements OnClickListener,ILoginView {
 
 	@ViewInject(R.id.et_name)
-	private EditText et_name;
+	private EditextDelete et_name;
 	@ViewInject(R.id.et_pwd)
-	private EditText et_pwd;
+	private EditextDelete et_pwd;
 	@ViewInject(R.id.btn_login)
 	private Button btn_login;
 	@ViewInject(R.id.btn_rel)
@@ -48,6 +50,7 @@ public class LoginFragment extends BaseFragment implements OnClickListener,ILogi
 
 	@Override
 	public void initData(Bundle savedInstanceState) {
+		//初始化登录的p
 		persenter = new LoginPersenter(this);
 		btn_login.setOnClickListener(this);
 		btn_rel.setOnClickListener(this);
@@ -82,7 +85,7 @@ public class LoginFragment extends BaseFragment implements OnClickListener,ILogi
 	}
 
 	@Override
-	public void onLoginSuccess() {
+	public void onLoginSuccess(LoginUserInfo loginUserInfo) {
 		// TODO Auto-generated method stub
 		startActivity(new Intent(mContext,MainActivity.class));
 	}
@@ -92,5 +95,6 @@ public class LoginFragment extends BaseFragment implements OnClickListener,ILogi
 		// TODO Auto-generated method stub
 		//跳转注册一页
 	}
+
 
 }

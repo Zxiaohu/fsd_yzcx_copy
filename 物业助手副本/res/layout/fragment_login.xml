@@ -4,19 +4,21 @@
     android:background="@color/blue2"
     android:orientation="vertical" >
     
-    <EditText
+    <com.fsd.owner.property.ui.view.et.EditextDelete
         android:id="@+id/et_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:drawableRight="@drawable/ic_clear_search_api_holo_light"
         android:ems="10" >
 
         <requestFocus />
-    </EditText>
+    </com.fsd.owner.property.ui.view.et.EditextDelete>
 
-    <EditText
+    <com.fsd.owner.property.ui.view.et.EditextDelete
         android:id="@+id/et_pwd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:drawableRight="@drawable/delete"
         android:ems="10" />
 
     <Button

@@ -128,16 +128,21 @@ public class RegisterFragment extends BaseFragment implements IReginsterView, On
 		tv_name.setText(roomInfo.getMastername());
 		String telnumber = roomInfo.getTelnumber();
 		
-		//保存用户的电话到缓存中
+		
 		if(telnumber.length()==11){
+			
+			//将用户的电话存到缓存中咯
 			SharedPfTools.insertData(SPParam.PhoneNum,telnumber);
+			
+			//将用户的电话号码进行特殊处理在显示
 			String star=telnumber.substring(0,3);
 			String end=telnumber.substring(telnumber.length()-4, telnumber.length());
 			tv_phonenum.setText(star+"****"+end);
+			
 		}else{
 			tv_phonenum.setText(telnumber);
 		}
-		//presenter.getUserInfo();
+
 	}
 
 

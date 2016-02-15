@@ -17,7 +17,7 @@
 	<style name="style_sp_base">
 	    <item name="android:spinnerMode">dropdown</item>
 	    <item name="android:layout_height">@dimen/dimen_720height</item>
-	    <item name="android:background">@drawable/sp_bg</item>
+	    <item name="android:background">@drawable/sp</item>
 	    <item name="android:layout_marginBottom">@dimen/dimen_720minspacing</item>
 	</style>
 

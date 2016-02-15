@@ -133,6 +133,7 @@ public class RoomChooser extends LinearLayout implements IRoomChView{
 					int position, long id) {
 				// TODO Auto-generated method stub
 				uid=unitsid[position];
+				//获取房间的信息
 				presenter.fetchRoomInfo();
 			}
 			@Override
@@ -142,6 +143,7 @@ public class RoomChooser extends LinearLayout implements IRoomChView{
 			}
 		});
 	}
+	
 	@Override
 	public void onRoomDataSuccess(final String[] roomsid, String[] roomsname) {
 		// TODO Auto-generated method stub
@@ -194,6 +196,8 @@ public class RoomChooser extends LinearLayout implements IRoomChView{
 			layout.setVisibility(View.GONE);
 		}
 	}
+	
+	//请求房号完整的监听事件
 	private OnRoomInfoCompleteListener listener;
 	
 	public void setCompleteListener(OnRoomInfoCompleteListener listener){
@@ -202,8 +206,10 @@ public class RoomChooser extends LinearLayout implements IRoomChView{
 	@Override
 	public void onRoomComplete(RoomInfo roomInfo) {
 		// TODO Auto-generated method stub
+		//主要是将最终的结果拿到别处去用
 		listener.onRoomInfoSuccess(roomInfo);
 	}
+	
 	public interface OnRoomInfoCompleteListener{
 		void onRoomInfoSuccess(RoomInfo roomInfo);
 	}
