@@ -39,9 +39,9 @@ public class RegisterPresenter implements RegsiterDaoListener {
 			String userRelNum = SharedPfTools.queryStr(SPParam.PhoneNum); 
 
 			if(CheckTools.isEmpty(new String[]{userPhoneNum})){
-				SystemTools.toastI("请输入手机号");
+				SystemTools.fail("请输入手机号");
 			}else if(!userPhoneNum.equals(userRelNum)){//验证用户输入的手机号是否和他的手机号相同
-				SystemTools.toastI("您输入的手机号与上不匹配,请联系管理员修改手机号");
+				SystemTools.fail("您输入的手机号与上不匹配,请联系管理员修改手机号");
 			}else{
 				//生成验证码
 				String yzm=DataTools.get4Random();

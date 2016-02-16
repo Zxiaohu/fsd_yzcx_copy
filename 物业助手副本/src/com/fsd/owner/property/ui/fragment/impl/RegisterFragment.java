@@ -15,6 +15,7 @@ import com.fsd.owner.property.ui.activiy.impl.LoginActivity;
 import com.fsd.owner.property.ui.fragment.IReginsterView;
 import com.fsd.owner.property.ui.fragment.base.BaseFragment;
 import com.fsd.owner.property.ui.view.button.TimeButton;
+import com.fsd.owner.property.ui.view.et.EditextDelete;
 import com.fsd.owner.property.ui.view.roomchoose.RoomChooser;
 import com.fsd.owner.property.ui.view.roomchoose.RoomChooser.OnRoomInfoCompleteListener;
 import com.fsd.owner.property.ui.view.roomchoose.RoomInfo;
@@ -40,13 +41,13 @@ public class RegisterFragment extends BaseFragment implements IReginsterView, On
 	private RoomChooser roomChooser;
 	
 	@ViewInject(R.id.et_phonenum)
-	private EditText et_phonenum;
+	private EditextDelete et_phonenum;
 	
 	@ViewInject(R.id.btn_checknum)
 	private TimeButton btn_checkNum;
 	
 	@ViewInject(R.id.et_checknum)
-	private EditText et_checknum;
+	private EditextDelete et_checknum;
 	
 	@ViewInject(R.id.btn_rel)
 	private Button btn_rel;
@@ -64,7 +65,7 @@ public class RegisterFragment extends BaseFragment implements IReginsterView, On
 
 	@Override
 	public void initData(Bundle savedInstanceState) {
-		
+		//et_phonenum.set
 		btn_checkNum.onCreate(savedInstanceState);
 		btn_checkNum.setTextAfter("秒").setTextBefore("验证码").setLenght(60 * 1000);
 		//初始化控制器

@@ -2,46 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/blue1" >
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.382"
-        android:orientation="vertical" >
-
-        <TextView
-            android:id="@+id/tv_choose_house"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="选择房号"
-            android:textSize="@dimen/medium" />
-
-        <com.fsd.owner.property.ui.view.roomchoose.RoomChooser
-            android:id="@+id/roomch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-        </com.fsd.owner.property.ui.view.roomchoose.RoomChooser>
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="用户信息" />
-
-        <TextView
-            android:id="@+id/tv_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="姓名:" />
-
-        <TextView
-            android:id="@+id/tv_phonenum"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="手机号" />
-    </LinearLayout>
+    android:background="@color/blue1"
+    android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,34 +11,118 @@
         android:layout_weight="0.618"
         android:orientation="vertical" >
 
-        <EditText
-            android:id="@+id/et_phonenum"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="请输入您的手机号:" >
+            android:layout_height="0dp"
+            android:layout_weight="0.618"
+            android:orientation="vertical"
+            android:padding="@dimen/dimen_720maxspacing" >
 
-            <requestFocus />
-        </EditText>
+            <TextView
+                android:id="@+id/tv_choose_house"
+                style="@style/style_first_title"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_720height"
+                android:text="点我选择房号" />
 
-        <com.fsd.owner.property.ui.view.button.TimeButton
-            android:id="@+id/btn_checknum"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <com.fsd.owner.property.ui.view.roomchoose.RoomChooser
+                android:id="@+id/roomch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+            </com.fsd.owner.property.ui.view.roomchoose.RoomChooser>
+        </LinearLayout>
 
-        <EditText
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.382"
+            android:orientation="vertical"
+            android:padding="@dimen/dimen_720maxspacing" >
+
+            <View style="@style/style_border_line" />
+
+            <TextView
+                android:id="@+id/textView2"
+                style="@style/style_first_title"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_720height"
+                android:text="用户信息" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                style="@style/style_first_title"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:text="姓名:"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_phonenum"
+                style="@style/style_first_title"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:text="手机号"
+                android:textStyle="bold" />
+
+            <View style="@style/style_border_line" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.382"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_720maxspacing" >
+
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" 
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/dimen_720maxspacing">
+
+            <com.fsd.owner.property.ui.view.et.EditextDelete
+                android:id="@+id/et_phonenum"
+                style="@style/style_login_et"
+                android:layout_width="0dp"
+                android:layout_weight="8"
+                android:layout_height="@dimen/dimen_720height"
+                android:layout_marginRight="@dimen/dimen_720minspacing"
+                android:hint="请输入您的手机号:"
+                android:inputType="numberPassword" >
+            </com.fsd.owner.property.ui.view.et.EditextDelete>
+
+            <com.fsd.owner.property.ui.view.button.TimeButton
+                android:id="@+id/btn_checknum"
+                style="@style/style_btn_base"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="@dimen/dimen_720height"
+                android:background="@drawable/seletor_btn"
+                android:textColor="@color/red" />
+
+        </LinearLayout>
+
+        <View style="@style/style_border_line" />
+
+        <com.fsd.owner.property.ui.view.et.EditextDelete
             android:id="@+id/et_checknum"
+            style="@style/style_login_et"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
+            android:layout_height="@dimen/dimen_720height"
             android:hint="请输入验证码"
             android:inputType="numberPassword" />
 
+        <View style="@style/style_border_line" />
+
         <Button
             android:id="@+id/btn_rel"
+            style="@style/style_btn_base"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="注册" />
+            android:layout_height="36dp"
+            android:layout_marginTop="@dimen/dimen_720maxspacing"
+            android:background="@drawable/seletor_btn"
+            android:text="注  册" />
     </LinearLayout>
 
 </LinearLayout>

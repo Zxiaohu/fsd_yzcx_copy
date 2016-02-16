@@ -37,7 +37,7 @@ public class LoginPersenter implements ILoginPersenter, LoginListener {
 			String pwd =mView.getUserPwd();
 			//非空验证
 			if(CheckTools.isEmpty(new String[]{name,pwd})){
-				SystemTools.toastI("请输入完整信息");
+				SystemTools.fail("请输入完整信息");
 			}else{
 				//服务器验证
 				loginDao.setNameAndPwd(new String[]{name,pwd});

@@ -2,10 +2,7 @@
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-
-
-
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
     <style name="AppBaseTheme" parent="android:Theme.Holo.Light"></style>
 
@@ -13,19 +10,37 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <item name="android:windowNoTitle">true</item>
     </style>
-   
-	<style name="style_sp_base">
-	    <item name="android:spinnerMode">dropdown</item>
-	    <item name="android:layout_height">@dimen/dimen_720sheight</item>
-	    <item name="android:layout_marginBottom">@dimen/dimen_720minspacing</item>
-	    <item name="android:textColor">@color/black</item>
-	</style>
 
-	<style name="style_login_et">
-		<item name="android:drawableRight">@drawable/ic_clear_search_api_holo_light</item>
-		<item name="android:background">@color/white</item>
-		<item name="android:paddingLeft">@dimen/dimen_720maxspacing</item>
-		<item name="android:paddingRight">@dimen/dimen_720maxspacing</item>
-		<item name="android:textSize">@dimen/small</item>
-	</style>
+    <style name="style_sp_base">
+        <item name="android:spinnerMode">dropdown</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:background">@null</item>
+        <item name="android:layout_marginBottom">@dimen/dimen_720minspacing</item>
+        <item name="android:textSize">@dimen/medium</item>
+    </style>
+
+    <style name="style_login_et">
+        <item name="android:drawableRight">@drawable/ic_clear_search_api_holo_light</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:paddingLeft">@dimen/dimen_720maxspacing</item>
+        <item name="android:paddingRight">@dimen/dimen_720maxspacing</item>
+        <item name="android:textSize">@dimen/small</item>
+    </style>
+
+    <style name="style_first_title" parent="android:Widget.Holo.Light.TextView">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/medium</item>
+    </style>
+
+    <style name="style_border_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.2dp</item>
+        <item name="android:background">@color/huise1</item>
+    </style>
+
+    <style name="style_btn_base">
+        <item name="android:textColor">@color/blue1</item>
+        <item name="android:textSize">@dimen/medium</item>
+    </style>
 </resources>
