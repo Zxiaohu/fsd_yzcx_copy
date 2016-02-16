@@ -38,9 +38,5 @@ public class LoginTest extends AndroidTestCase implements ILoginView {
 		LogUtil.i("login", "成功");
 	}
 
-	@Override
-	public void gotoRegisterFrg() {
-		// TODO Auto-generated method stub
-		
-	}
+
 }

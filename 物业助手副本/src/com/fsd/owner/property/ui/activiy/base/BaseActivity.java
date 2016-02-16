@@ -15,29 +15,9 @@ public class BaseActivity extends FragmentActivity {
 		LogUtil.d("BaseActivity", this.getClass().getSimpleName()+"被加载");
 		ActivityCollector.addActivity(this);
 
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-			setTranslucentStatus(true);
-		}
-
-		//SystemBarTintManager tintManager = new SystemBarTintManager(this);
-		//tintManager.setStatusBarTintEnabled(true);
-		//tintManager.setStatusBarTintResource(com.fsd.yzcx.R.color.blue2);
-		//tintManager.setNavigationBarTintEnabled(true);
-		//tintManager.setNavigationBarTintResource(R.color.blue2);
 
 	}
 	
-	private void setTranslucentStatus(boolean on) {
-		Window win = getWindow();
-		WindowManager.LayoutParams winParams = win.getAttributes();
-		final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
-		if (on) {
-			winParams.flags |= bits;
-		} else {
-			winParams.flags &= ~bits;
-		}
-		win.setAttributes(winParams);
-	}
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();

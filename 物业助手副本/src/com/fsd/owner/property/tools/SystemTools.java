@@ -6,9 +6,11 @@ import java.util.Date;
 import com.fsd.owner.property.R;
 import com.fsd.owner.property.global.MyApplication;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.util.Log;
@@ -109,7 +111,16 @@ public class SystemTools {
 		return df.format(date);
 	}
 	
-
+	/*****
+	 * 
+	 * @param context
+	 * @param intent
+	 */
+	public static void jumpActivity(Context context,Class class1){
+		Intent intent = new Intent(context,class1);
+		context.startActivity(intent);
+	}
+	
 	/**
 	 * 
 	 * @param context

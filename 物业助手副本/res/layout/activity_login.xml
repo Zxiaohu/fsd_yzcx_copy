@@ -2,9 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clipToPadding="true"
-    android:fitsSystemWindows="true"
-    android:paddingTop="20dp"
     android:orientation="vertical" >
     <com.fsd.owner.property.ui.view.viewpager.MyViewPager
         android:id="@+id/vp_content"

@@ -1,12 +1,10 @@
 package com.fsd.owner.property.ui.fragment.impl;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.fsd.owner.property.R;
@@ -89,14 +87,11 @@ public class LoginFragment extends BaseFragment implements OnClickListener,ILogi
 	@Override
 	public void onLoginSuccess(LoginUserInfo loginUserInfo) {
 		// TODO Auto-generated method stub
-		startActivity(new Intent(mContext,MainActivity.class));
+		SystemTools.jumpActivity(mContext,MainActivity.class);
+		((LoginActivity)mContext).finish();
 	}
 
-	@Override
-	public void gotoRegisterFrg() {
-		// TODO Auto-generated method stub
-		//跳转注册一页
-	}
 
+	
 
 }

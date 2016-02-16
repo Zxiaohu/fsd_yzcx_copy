@@ -4,7 +4,7 @@
     <string name="app_name">物业助手副本</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-	
+
     <color name="blue1">#33B5E5</color>
     <color name="blue2">#0068B7</color>
     <color name="orange">#FFBB33</color>
@@ -12,13 +12,14 @@
     <color name="blue4">#cbf3f8</color>
     <color name="huise">#c0c0c0</color>
     <color name="huise1">#e6e6e6</color>
+    <color name="huise2">#F8F8F8</color>
     <color name="white">#ffffff</color>
     <color name="red">#cc4444</color>
     <color name="green">#669900</color>
     <color name="black">#000</color>
-    
-<!-- 请求网络的参数 -->
+
+    <!-- 请求网络的参数 -->
     <!-- 手机号 -->
     <string name="uname">uname</string>
-    
+
 </resources>

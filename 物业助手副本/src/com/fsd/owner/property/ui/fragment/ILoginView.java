@@ -9,6 +9,5 @@ public interface ILoginView {
 	String getUserPwd();
 	/**登录成功的的操作**/
 	void onLoginSuccess(LoginUserInfo loginUserInfo);
-	/**跳转到注册的操作**/
-	void gotoRegisterFrg();
+
 }

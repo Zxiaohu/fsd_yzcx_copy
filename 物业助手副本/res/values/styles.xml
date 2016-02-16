@@ -1,8 +1,8 @@
-<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
     <style name="AppBaseTheme" parent="android:Theme.Holo.Light"></style>
 
@@ -33,9 +33,15 @@
         <item name="android:textSize">@dimen/medium</item>
     </style>
 
-    <style name="style_border_line">
+    <style name="style_border_hline">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0.2dp</item>
+        <item name="android:background">@color/huise1</item>
+    </style>
+
+    <style name="style_border_vline">
+        <item name="android:layout_width">0.2dp</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:background">@color/huise1</item>
     </style>
 
@@ -43,4 +49,23 @@
         <item name="android:textColor">@color/blue1</item>
         <item name="android:textSize">@dimen/medium</item>
     </style>
+
+    <style name="style_uc_tv_base">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:paddingLeft">@dimen/dimen_720maxspacing</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="style_function_item">
+        <item name="android:gravity">center_vertical|left</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:paddingLeft">@dimen/dimen_720maxspacing</item>
+        <item name="android:textSize">@dimen/large</item>
+        <item name="android:drawableLeft">@drawable/btn_radio_on</item>
+        <item name="android:background">@drawable/seletor_tv</item>
+    </style>
+
 </resources>
