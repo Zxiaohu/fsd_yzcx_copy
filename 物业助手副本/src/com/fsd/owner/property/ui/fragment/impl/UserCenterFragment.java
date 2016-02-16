@@ -1,7 +1,5 @@
 package com.fsd.owner.property.ui.fragment.impl;
 
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.percent.PercentRelativeLayout;
 import android.view.LayoutInflater;
@@ -15,6 +13,7 @@ import com.fsd.owner.property.presenter.fragment.impl.UserCenterPresenter;
 import com.fsd.owner.property.tools.SharedPfTools;
 import com.fsd.owner.property.tools.SystemTools;
 import com.fsd.owner.property.ui.activiy.impl.LoginActivity;
+import com.fsd.owner.property.ui.activiy.impl.TempActivity;
 import com.fsd.owner.property.ui.fragment.IUserCenterView;
 import com.fsd.owner.property.ui.fragment.base.BaseFragment;
 import com.lidroid.xutils.ViewUtils;
@@ -73,7 +72,11 @@ public class UserCenterFragment extends BaseFragment implements IUserCenterView,
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.prl_title:
+			
 			//跳转到个人信息列表
+			TempActivity.setFrg4Ac(new UserInfoFragment());
+			SystemTools.jumpActivity(mContext, TempActivity.class);
+			
 			break;
 		case R.id.tv_evaluate:
 			//跳转到评价界面

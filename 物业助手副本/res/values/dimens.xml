@@ -9,6 +9,7 @@
     <dimen name="large">22sp</dimen>
 
     <dimen name="dimen_720height">48dp</dimen>
+    <dimen name="dimen_720height64">64dp</dimen>
     <dimen name="dimen_720sheight">24dp</dimen>
     <dimen name="dimen_720maxheight">96dp</dimen>
     <dimen name="dimen_720largeheight">144dp</dimen>
