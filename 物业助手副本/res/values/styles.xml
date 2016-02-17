@@ -91,4 +91,9 @@
         <item name="android:layout_marginTop">@dimen/dimen_720largespacing</item>
         <item name="android:textSize">@dimen/large</item>
     </style>
+    <style name="style_border_etline" parent="@style/style_border_hsline">
+        <item name="android:background">@color/green</item>
+        <item name="android:layout_marginLeft">@dimen/dimen_720largespacing</item>
+        <item name="android:layout_marginRight">@dimen/dimen_720largespacing</item>
+    </style>
 </resources>

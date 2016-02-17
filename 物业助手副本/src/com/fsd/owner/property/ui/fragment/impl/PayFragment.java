@@ -7,11 +7,14 @@ import android.os.Bundle;
 import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.fsd.owner.property.R;
 import com.fsd.owner.property.model.bean.ConfigInfo;
+import com.fsd.owner.property.tools.SystemTools;
 import com.fsd.owner.property.tools.UiTools;
 import com.fsd.owner.property.ui.activiy.impl.TempActivity;
 import com.fsd.owner.property.ui.fragment.base.BaseFragment;
@@ -52,7 +55,7 @@ public class PayFragment extends BaseFragment implements TitleBarListener {
 		bar.setListener(this);
 		
 		//获取字符串中的内容
-		List<ConfigInfo> lists=new Gson().fromJson(subservices, new TypeToken<List<ConfigInfo>>(){}.getType());
+		final List<ConfigInfo> lists=new Gson().fromJson(subservices, new TypeToken<List<ConfigInfo>>(){}.getType());
 		String test[]=new String[lists.size()];
 		List<Spanned> list = new ArrayList<Spanned>();
 		
@@ -64,6 +67,19 @@ public class PayFragment extends BaseFragment implements TitleBarListener {
 		//填充listView
 		lv_subservice.setAdapter(new ArrayAdapter<Spanned>(mContext, android.R.layout.simple_list_item_1,list));
 		
+		//添加点击监听事件
+		lv_subservice.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				
+				ConfigInfo configInfo = lists.get(position);
+				//跳转到派工页
+				SystemTools.jumpTActivity(mContext,new PaiGongFragment());
+			}
+		});
 	}
 
 	@Override

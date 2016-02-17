@@ -6,16 +6,15 @@
     android:orientation="vertical" >
 
     <com.fsd.owner.property.ui.view.TitleBar
-        android:id="@+id/tb_update"
+        android:id="@+id/tb_pg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <com.fsd.owner.property.ui.view.et.EditextDelete
-        android:id="@+id/et_update"
+        android:id="@+id/et_pg_content"
         style="@style/style_et_update"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_720height" />
-
-    <View style="@style/style_border_etline" />
-
+        android:hint="请描述一下"
+        android:layout_height="@dimen/dimen_720height64" />
+	<View style="@style/style_border_etline" />
 </LinearLayout>
