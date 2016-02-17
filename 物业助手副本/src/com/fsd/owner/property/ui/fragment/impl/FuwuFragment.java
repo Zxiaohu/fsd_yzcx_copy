@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.fsd.owner.property.R;
 import com.fsd.owner.property.model.bean.FuwuItemContent;
 import com.fsd.owner.property.model.bean.FuwuItemContent.FuwuItem;
+import com.fsd.owner.property.presenter.fragment.impl.FuwuPresenter;
 import com.fsd.owner.property.tools.DataTools;
 import com.fsd.owner.property.tools.ResTools;
 import com.fsd.owner.property.tools.SystemTools;
@@ -32,6 +33,7 @@ public class FuwuFragment extends BaseFragment implements IFuwuView {
 	@ViewInject(R.id.tb_fuwu)
 	private TitleBar bar;
 
+	private FuwuPresenter p;
 	@Override
 	public View initView(LayoutInflater inflater) {
 		// TODO Auto-generated method stub
@@ -43,6 +45,7 @@ public class FuwuFragment extends BaseFragment implements IFuwuView {
 	@Override
 	public void initData(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
+		p= new FuwuPresenter(this);
 		//设置标题栏
 		bar.setLCR(null,"服务中心", null);
 		//获取数据
@@ -59,13 +62,14 @@ public class FuwuFragment extends BaseFragment implements IFuwuView {
 				// TODO Auto-generated method stub
 
 				//如果是最后一个就不做处理
-				if(tipInfo.fuwu_items.size()==position){
+				if(tipInfo.fuwu_items.size()-1==position){
 					SystemTools.toastI("待开发....");
 				}else{
 					//获取单个服务项
 					FuwuItem fuwuItem = tipInfo.fuwu_items.get(position);
 					//跳转到具体的服务请求的页面
-					
+					//根据主项获取相应的子服务项
+					p.getSubS(fuwuItem.id);
 				}
 			}
 		});

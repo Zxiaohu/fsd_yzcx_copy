@@ -1,5 +1,6 @@
 package com.fsd.owner.property.global;
 
+
 /**网络请求的地址**/
 public class MyHttpUrl {
 	
@@ -79,6 +80,11 @@ public class MyHttpUrl {
 	 */
 	public static final String UPLOAD_PICTURE=URL+"upload.asp"+ROOT;
 
+	/**版本信息s**/
 	public static final String VERSION = URL + "config.asp" +ROOT+"&configtype=webconfig";
-
+	
+	/**配置信息**/
+	public static final String CONFIG = URL+"config.asp"+ROOT;
+	/**派工信息***/
+	public static final String PAIGONG = URL_YZ+"paigong.asp"+ROOT;
 }

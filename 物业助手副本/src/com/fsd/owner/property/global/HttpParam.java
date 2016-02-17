@@ -1,6 +1,15 @@
 package com.fsd.owner.property.global;
 
+/****
+ * HttpParam
+ * @author zxh
+ * 网络请求的参数
+ */
 public enum HttpParam {
+	/**配置类型**/
+	CONFIGTYPE("configtype"),
+	/**主服务的id**/
+	UPID("upid"),
 	/**管理处id**/
 	PrecinctID("PrecinctID"),
 	/**大楼处id**/
