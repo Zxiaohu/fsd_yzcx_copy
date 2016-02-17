@@ -86,7 +86,10 @@ public class FuwuFragment extends BaseFragment implements IFuwuView {
 					//获取单个服务项
 					FuwuItem fuwuItem = tipInfo.fuwu_items.get(position);
 					//跳转到具体的服务请求的页面
-
+					//开启进度条
+					dialog = new ProgressDialog(mContext);
+					dialog.setMessage("数据加载中...");
+					dialog.show();
 					//根据主项获取相应的子服务项
 					p.getSubS(fuwuItem);
 
@@ -103,7 +106,6 @@ public class FuwuFragment extends BaseFragment implements IFuwuView {
 		Bundle b = new Bundle();
 
 		b.putString("r", r);
-
 		b.putString("id", fuwuItem.id);
 		b.putString("name", fuwuItem.name);
 		payFragment.setArguments(b);
@@ -113,7 +115,6 @@ public class FuwuFragment extends BaseFragment implements IFuwuView {
 
 	@Override
 	public void isLoding(boolean b) {
-		dialog = new ProgressDialog(mContext);
 		if(b){
 			dialog.show();
 		}else{
