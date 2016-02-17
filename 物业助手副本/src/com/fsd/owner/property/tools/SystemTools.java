@@ -5,6 +5,8 @@ import java.util.Date;
 
 import com.fsd.owner.property.R;
 import com.fsd.owner.property.global.MyApplication;
+import com.fsd.owner.property.ui.activiy.impl.TempActivity;
+import com.fsd.owner.property.ui.fragment.base.BaseFragment;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -118,6 +120,12 @@ public class SystemTools {
 	 */
 	public static void jumpActivity(Context context,Class class1){
 		Intent intent = new Intent(context,class1);
+		context.startActivity(intent);
+	}
+	
+	public static void jumpTActivity(Context context,BaseFragment baseFragment){
+		TempActivity.setFrg4Ac(baseFragment);
+		Intent intent = new Intent(context,TempActivity.class);
 		context.startActivity(intent);
 	}
 	

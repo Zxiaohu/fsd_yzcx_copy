@@ -1,5 +1,7 @@
 package com.fsd.owner.property.tools;
 
+import android.text.Html;
+import android.text.Spanned;
 import android.view.View;
 import android.widget.TextView;
 
@@ -30,5 +32,10 @@ public class UiTools {
 		for (int i = 0; i < strs.length; i++) {
 			textViews[i].setText(strs[i]);
 		}
+	}
+	
+	/**设置字体的颜色**/
+	public static Spanned getSpanned(String color,String content){
+		return Html.fromHtml("<font color="+color+">"+content+"</font>");
 	}
 }

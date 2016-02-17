@@ -45,6 +45,7 @@
          <item name="android:layout_marginLeft">@dimen/dimen_720minspacing</item>
         <item name="android:layout_marginRight">@dimen/dimen_720minspacing</item>
     </style>
+  
     <style name="style_border_vline">
         <item name="android:layout_width">0.2dp</item>
         <item name="android:layout_height">match_parent</item>
@@ -77,6 +78,17 @@
     <style name="style_uinfo_item" parent="android:Widget.Holo.Light.TextView">
         <item name="android:gravity">center_vertical|left</item>
         <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/large</item>
+    </style>
+    <style name="style_titlebar">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/medium</item>
+        <item name="android:background">@drawable/seletor_tb</item>
+    </style>
+    <style name="style_et_update" parent="@style/style_login_et">
+        <item name="android:layout_marginLeft">@dimen/dimen_720largespacing</item>
+        <item name="android:layout_marginRight">@dimen/dimen_720largespacing</item>
+        <item name="android:layout_marginTop">@dimen/dimen_720largespacing</item>
         <item name="android:textSize">@dimen/large</item>
     </style>
 </resources>

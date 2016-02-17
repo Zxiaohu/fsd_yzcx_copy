@@ -9,7 +9,7 @@ import com.fsd.owner.property.global.MyApplication;
  */
 public class ResTools {
 
-
+	/**获取数组资源**/
 	public static String []getArr(int nameid){
 		String[] stringArrays=null;
 		try{
@@ -20,5 +20,7 @@ public class ResTools {
 		}
 		return stringArrays;
 	}
-
+	
+	/**获取字符串资源***/
+	public static String getStr(int id){return MyApplication.getContext().getString(id);}
 }

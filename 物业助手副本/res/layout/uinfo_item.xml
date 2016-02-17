@@ -21,7 +21,8 @@
         style="@style/style_uinfo_item"
         android:layout_width="0dp"
         android:layout_height="@dimen/dimen_720height"
-        android:layout_weight="1"
+        android:layout_weight="2"
+        android:singleLine="true"
         android:gravity="center_vertical|right"
         android:text="追鱼不是梦"
         android:textColor="@color/huise" />

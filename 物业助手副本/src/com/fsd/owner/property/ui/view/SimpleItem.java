@@ -40,4 +40,10 @@ public class SimpleItem extends LinearLayout {
 		tv_tip.setText(t);
 		tv_content.setText(c);
 	}
+	public String getT(){
+		return tv_tip.getText().toString().trim();
+	}
+	public String getC(){
+		return tv_content.getText().toString().trim();
+	}
 }

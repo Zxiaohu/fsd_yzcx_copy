@@ -5,12 +5,17 @@
     android:background="@color/huise2"
     android:orientation="vertical" >
 
+    <com.fsd.owner.property.ui.view.TitleBar
+        android:id="@+id/tb_userinfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <RelativeLayout
         android:id="@+id/ry_head"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_720height64"
+        android:layout_marginTop="@dimen/dimen_720maxspacing"
         android:background="@drawable/seletor_tv"
-        android:layout_marginTop="@dimen/dimen_720height"
         android:padding="@dimen/dimen_720largespacing" >
 
         <TextView
@@ -33,10 +38,9 @@
             android:layout_alignTop="@+id/textView1"
             android:layout_marginRight="0dp"
             android:src="@drawable/userhead" />
-
     </RelativeLayout>
 
-   <View style="@style/style_border_hsline" />
+    <View style="@style/style_border_hsline" />
 
     <com.fsd.owner.property.ui.view.SimpleItem
         android:id="@+id/si_nickname"
@@ -46,14 +50,14 @@
     <View style="@style/style_border_hsline" />
 
     <com.fsd.owner.property.ui.view.SimpleItem
-        android:id="@+id/si_address"
+        android:id="@+id/si_houseinfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <View style="@style/style_border_hsline" />
 
     <com.fsd.owner.property.ui.view.SimpleItem
-        android:id="@+id/si_houseinfo"
+        android:id="@+id/si_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -73,7 +77,7 @@
         android:layout_height="@dimen/dimen_720height"
         android:layout_marginLeft="@dimen/dimen_720largespacing"
         android:layout_marginRight="@dimen/dimen_720largespacing"
-        android:layout_marginTop="@dimen/dimen_720height"
+        android:layout_marginTop="@dimen/dimen_720maxspacing"
         android:background="@drawable/seletor_btn"
         android:text="注 销"
         android:textColor="@color/red" />

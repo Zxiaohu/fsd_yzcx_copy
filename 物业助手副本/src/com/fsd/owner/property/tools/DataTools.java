@@ -20,6 +20,12 @@ public class DataTools {
 	public static String getJsonObj(String str){
 		return str.substring(1,str.length()-1);
 	}
+	/****
+	 * 
+	 * @param str json字符串
+	 * @param class1 将被转化的类
+	 * @return 被转化的对象
+	 */
 	@SuppressWarnings("unchecked")
 	public static Object getTipInfo(String str,Class class1){
 		return new Gson().fromJson(getJsonObj(str),class1);
