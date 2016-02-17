@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.fsd.owner.property.R;
+import com.fsd.owner.property.model.bean.UserInfo;
 import com.fsd.owner.property.tools.ResTools;
 import com.fsd.owner.property.tools.UiTools;
 import com.fsd.owner.property.ui.fragment.IUserInfoView;
@@ -30,6 +31,7 @@ public class UserInfoFragment extends BaseFragment implements IUserInfoView,OnCl
 	private SimpleItem si_houseinfo;
 	@ViewInject(R.id.si_score)
 	private SimpleItem si_score;
+	/**顶部头像**/
 	@ViewInject(R.id.ry_head)
 	private RelativeLayout ry_head;
 	@Override
@@ -75,5 +77,11 @@ public class UserInfoFragment extends BaseFragment implements IUserInfoView,OnCl
 		for (int i = 0; i < tips.length; i++) {
 			simpleItems[i].setTAndC(tips[i],contents[i]);
 		}
+	}
+
+	@Override
+	public void setUserInfo(UserInfo userInfo) {
+		// TODO Auto-generated method stub
+		
 	}
 }

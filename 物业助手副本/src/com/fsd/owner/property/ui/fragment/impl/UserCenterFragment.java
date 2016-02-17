@@ -10,6 +10,7 @@ import com.fsd.owner.property.R;
 import com.fsd.owner.property.global.SPParam;
 import com.fsd.owner.property.model.bean.UserInfo;
 import com.fsd.owner.property.presenter.fragment.impl.UserCenterPresenter;
+import com.fsd.owner.property.tools.DataTools;
 import com.fsd.owner.property.tools.SharedPfTools;
 import com.fsd.owner.property.tools.SystemTools;
 import com.fsd.owner.property.ui.activiy.impl.LoginActivity;
@@ -96,7 +97,10 @@ public class UserCenterFragment extends BaseFragment implements IUserCenterView,
 	@Override
 	public void onUserLogin(UserInfo userinfo_obj) {
 		// TODO Auto-generated method stub
+		
+		
 		tv_nickname.setText(userinfo_obj.getNickname());
 		tv_phone.setText(SharedPfTools.queryStr(SPParam.PhoneNum));
+	
 	}
 }

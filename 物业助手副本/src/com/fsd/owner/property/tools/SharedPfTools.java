@@ -7,6 +7,7 @@ import org.json.JSONObject;
 
 import com.fsd.owner.property.global.MyApplication;
 import com.fsd.owner.property.global.SPParam;
+import com.fsd.owner.property.model.bean.UserInfo;
 
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;

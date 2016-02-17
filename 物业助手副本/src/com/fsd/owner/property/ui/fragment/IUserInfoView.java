@@ -1,5 +1,7 @@
 package com.fsd.owner.property.ui.fragment;
 
-public interface IUserInfoView {
+import com.fsd.owner.property.model.bean.UserInfo;
 
+public interface IUserInfoView {
+	void setUserInfo(UserInfo userInfo);
 }

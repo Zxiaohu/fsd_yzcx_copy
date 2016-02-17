@@ -1,16 +1,16 @@
 package com.fsd.owner.property.ui.view.roomchoose;
 
 import com.fsd.owner.property.global.JsonParam;
-import com.fsd.owner.property.model.dao.impl.room.FetchFloorInfo;
-import com.fsd.owner.property.model.dao.impl.room.FetchFloorInfo.IFloorDataListener;
-import com.fsd.owner.property.model.dao.impl.room.FetchPrecinctInfo;
-import com.fsd.owner.property.model.dao.impl.room.FetchPrecinctInfo.IPrecinctListener;
-import com.fsd.owner.property.model.dao.impl.room.FetchRoomAllInfo;
-import com.fsd.owner.property.model.dao.impl.room.FetchRoomAllInfo.IRoomAllInfoListener;
-import com.fsd.owner.property.model.dao.impl.room.FetchRoomInfo;
-import com.fsd.owner.property.model.dao.impl.room.FetchRoomInfo.IRoomListener;
-import com.fsd.owner.property.model.dao.impl.room.FetchUnitInfo;
-import com.fsd.owner.property.model.dao.impl.room.FetchUnitInfo.IUnitListener;
+import com.fsd.owner.property.model.httpdao.impl.room.FetchFloorInfo;
+import com.fsd.owner.property.model.httpdao.impl.room.FetchPrecinctInfo;
+import com.fsd.owner.property.model.httpdao.impl.room.FetchRoomAllInfo;
+import com.fsd.owner.property.model.httpdao.impl.room.FetchRoomInfo;
+import com.fsd.owner.property.model.httpdao.impl.room.FetchUnitInfo;
+import com.fsd.owner.property.model.httpdao.impl.room.FetchFloorInfo.IFloorDataListener;
+import com.fsd.owner.property.model.httpdao.impl.room.FetchPrecinctInfo.IPrecinctListener;
+import com.fsd.owner.property.model.httpdao.impl.room.FetchRoomAllInfo.IRoomAllInfoListener;
+import com.fsd.owner.property.model.httpdao.impl.room.FetchRoomInfo.IRoomListener;
+import com.fsd.owner.property.model.httpdao.impl.room.FetchUnitInfo.IUnitListener;
 import com.fsd.owner.property.tools.DataTools;
 import com.fsd.owner.property.tools.LogUtil;
 import com.google.gson.Gson;

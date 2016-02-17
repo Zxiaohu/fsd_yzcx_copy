@@ -3,8 +3,8 @@ package com.fsd.owner.property.presenter.fragment.impl;
 import android.content.Context;
 
 import com.fsd.owner.property.global.SPParam;
-import com.fsd.owner.property.model.dao.impl.RegsiterDao;
-import com.fsd.owner.property.model.dao.impl.RegsiterDao.RegsiterDaoListener;
+import com.fsd.owner.property.model.httpdao.impl.RegsiterDao;
+import com.fsd.owner.property.model.httpdao.impl.RegsiterDao.RegsiterDaoListener;
 import com.fsd.owner.property.tools.CheckTools;
 import com.fsd.owner.property.tools.DataTools;
 import com.fsd.owner.property.tools.SharedPfTools;

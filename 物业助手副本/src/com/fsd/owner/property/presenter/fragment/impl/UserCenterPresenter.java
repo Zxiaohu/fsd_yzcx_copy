@@ -1,10 +1,11 @@
 package com.fsd.owner.property.presenter.fragment.impl;
 import com.fsd.owner.property.global.SPParam;
 import com.fsd.owner.property.model.bean.UserInfo;
-import com.fsd.owner.property.model.dao.impl.FetchUserInfoDao;
-import com.fsd.owner.property.model.dao.impl.FetchUserInfoDao.FetchListener;
+import com.fsd.owner.property.model.httpdao.impl.FetchUserInfoDao;
+import com.fsd.owner.property.model.httpdao.impl.FetchUserInfoDao.FetchListener;
 import com.fsd.owner.property.tools.DataTools;
 import com.fsd.owner.property.tools.SharedPfTools;
+import com.fsd.owner.property.tools.SystemTools;
 import com.fsd.owner.property.ui.fragment.IUserCenterView;
 /****
  * UserCenterPresenter 用户中心的
@@ -29,6 +30,7 @@ public class UserCenterPresenter implements FetchListener {
 		String uname=SharedPfTools.queryStr(SPParam.PhoneNum);
 		//1.存在
 		if(uname!=null){
+
 			//通过手机号去查询用户的信息
 			fetchInfoDao.setUname(uname);
 			//发送请求
@@ -43,7 +45,16 @@ public class UserCenterPresenter implements FetchListener {
 	@Override
 	public void onUserInfoReadly(String userinfo) {
 		// TODO Auto-generated method stub
-		UserInfo userinfo_obj = (UserInfo) DataTools.getTipInfo(userinfo, UserInfo.class);
-		mView.onUserLogin(userinfo_obj);
+		try{
+			//同步数据到本地缓存
+			SharedPfTools.insertData(SPParam.UserInfo,userinfo);
+			/**获取用户的信息***/
+			UserInfo userinfo_obj = DataTools.getUserInfo();
+			/**回传数据**/
+			mView.onUserLogin(userinfo_obj);
+		
+		}catch(Exception exception){
+			SystemTools.fail("系统异常");
+		}
 	}
 }

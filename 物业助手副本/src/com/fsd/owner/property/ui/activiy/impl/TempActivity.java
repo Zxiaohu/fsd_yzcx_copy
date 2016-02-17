@@ -16,10 +16,10 @@ import com.fsd.owner.property.ui.fragment.base.BaseFragment;
  */
 public class TempActivity extends BaseActivity implements ITempView {
 	
+	private static BaseFragment baseFragment;
 	
 	private FragmentManager mFragmentManager;
 	private FragmentTransaction mFragmentTransaction;
-	private static BaseFragment baseFragment;
 	
 	
 	@Override

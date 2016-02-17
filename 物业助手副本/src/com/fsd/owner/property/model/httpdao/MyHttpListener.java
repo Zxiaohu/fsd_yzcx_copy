@@ -1,4 +1,4 @@
-package com.fsd.owner.property.model.dao;
+package com.fsd.owner.property.model.httpdao;
 
 /**
  * MyHttpListener

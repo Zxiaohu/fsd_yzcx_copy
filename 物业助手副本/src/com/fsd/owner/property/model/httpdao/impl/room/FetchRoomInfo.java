@@ -1,8 +1,9 @@
-package com.fsd.owner.property.model.dao.impl.room;
+package com.fsd.owner.property.model.httpdao.impl.room;
 
 import com.fsd.owner.property.global.HttpParam;
 import com.fsd.owner.property.global.MyHttpUrl;
-import com.fsd.owner.property.model.dao.SFetchInfoDao;
+import com.fsd.owner.property.model.httpdao.SFetchInfoDao;
+import com.fsd.owner.property.tools.DataTools;
 import com.fsd.owner.property.tools.HttpTools;
 import com.lidroid.xutils.http.RequestParams;
 import com.lidroid.xutils.http.ResponseInfo;
@@ -11,18 +12,18 @@ import com.lidroid.xutils.http.ResponseInfo;
  * 获取管理处信息的
  * 2016年2月1日13:49:16
  */
-public class FetchUnitInfo extends SFetchInfoDao {
-	private IUnitListener listener;
-	
-	public FetchUnitInfo(IUnitListener listener){
+public class FetchRoomInfo extends SFetchInfoDao {
+
+	private IRoomListener listener;
+	public FetchRoomInfo(IRoomListener listener){
 		this.listener=listener;
 	}
-	
-	public void setPidFid(String pid,String fid){
-		commParams = HttpTools.getParam(
-				new HttpParam[]{HttpParam.PrecinctID,HttpParam.BuildingID},
-				new String[]{pid,fid});
+	public void setPidFidUid(String pid,String fid,String uid){
+		commParams=HttpTools.getParam(
+				new HttpParam[]{HttpParam.PrecinctID,HttpParam.BuildingID,HttpParam.FloorID},
+				new String[]{pid,fid,uid});
 	}
+	
 	@Override
 	public RequestParams setRequestParams() {
 		// TODO Auto-generated method stub
@@ -32,14 +33,16 @@ public class FetchUnitInfo extends SFetchInfoDao {
 	@Override
 	public String setRequestUrl() {
 		// TODO Auto-generated method stub
-		return MyHttpUrl.FLOOR;
+		return MyHttpUrl.ROOM;
 	}
+	
 	@Override
 	public void onSuccess(ResponseInfo<String> arg0) {
 		// TODO Auto-generated method stub
-		listener.onUnitDataSuccess(arg0.result.toString());
+		listener.onRoomDataSuccess(arg0.result.toString());
 	}
-	public interface IUnitListener{
-		void onUnitDataSuccess(String response);
+	
+	public interface IRoomListener{
+		void onRoomDataSuccess(String response);
 	}
 }

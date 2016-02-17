@@ -7,8 +7,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.fsd.owner.property.global.JsonParam;
+import com.fsd.owner.property.global.SPParam;
 import com.fsd.owner.property.model.bean.LoginUserInfo;
 import com.fsd.owner.property.model.bean.TipInfo;
+import com.fsd.owner.property.model.bean.UserInfo;
 import com.google.gson.Gson;
 
 public class DataTools {
@@ -21,6 +23,11 @@ public class DataTools {
 	@SuppressWarnings("unchecked")
 	public static Object getTipInfo(String str,Class class1){
 		return new Gson().fromJson(getJsonObj(str),class1);
+	}
+	
+	/**获取用户信息对象**/
+	public static UserInfo getUserInfo(){
+		return (UserInfo) DataTools.getTipInfo(SharedPfTools.queryStr(SPParam.UserInfo), UserInfo.class);
 	}
 	
 	/**将json转为2维数组**/

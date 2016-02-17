@@ -1,8 +1,8 @@
-package com.fsd.owner.property.model.dao.impl.room;
+package com.fsd.owner.property.model.httpdao.impl.room;
 
 import com.fsd.owner.property.global.HttpParam;
 import com.fsd.owner.property.global.MyHttpUrl;
-import com.fsd.owner.property.model.dao.SFetchInfoDao;
+import com.fsd.owner.property.model.httpdao.SFetchInfoDao;
 import com.fsd.owner.property.tools.DataTools;
 import com.fsd.owner.property.tools.HttpTools;
 import com.lidroid.xutils.http.RequestParams;

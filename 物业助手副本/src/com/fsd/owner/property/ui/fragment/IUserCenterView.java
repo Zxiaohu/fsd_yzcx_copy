@@ -2,6 +2,7 @@ package com.fsd.owner.property.ui.fragment;
 
 import com.fsd.owner.property.model.bean.UserInfo;
 
+
 public interface IUserCenterView {
 
 	/**用户登录的操作
