@@ -123,6 +123,7 @@ public class SystemTools {
 		context.startActivity(intent);
 	}
 	
+	/**直接跳转到**/
 	public static void jumpTActivity(Context context,BaseFragment baseFragment){
 		TempActivity.setFrg4Ac(baseFragment);
 		Intent intent = new Intent(context,TempActivity.class);

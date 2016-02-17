@@ -64,6 +64,7 @@ public class DataTools {
 		return null;
 	}
 
+	
 	public static String[] getArr4json(String jsonstr,JsonParam name){
 		try {
 			JSONArray array = new JSONArray(jsonstr);
@@ -96,4 +97,5 @@ public class DataTools {
 
 		return s+"";
 	}
+	
 }

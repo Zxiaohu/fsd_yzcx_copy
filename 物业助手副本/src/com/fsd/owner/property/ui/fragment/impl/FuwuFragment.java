@@ -1,5 +1,6 @@
 package com.fsd.owner.property.ui.fragment.impl;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,9 +13,13 @@ import com.fsd.owner.property.R;
 import com.fsd.owner.property.model.bean.FuwuItemContent;
 import com.fsd.owner.property.model.bean.FuwuItemContent.FuwuItem;
 import com.fsd.owner.property.presenter.fragment.impl.FuwuPresenter;
+import com.fsd.owner.property.tools.BudleTools;
+import com.fsd.owner.property.tools.BudleTools.BParam;
 import com.fsd.owner.property.tools.DataTools;
+import com.fsd.owner.property.tools.LogUtil;
 import com.fsd.owner.property.tools.ResTools;
 import com.fsd.owner.property.tools.SystemTools;
+import com.fsd.owner.property.ui.activiy.impl.TempActivity;
 import com.fsd.owner.property.ui.adapter.impl.GVAdapter;
 import com.fsd.owner.property.ui.fragment.IFuwuView;
 import com.fsd.owner.property.ui.fragment.base.BaseFragment;
@@ -34,6 +39,8 @@ public class FuwuFragment extends BaseFragment implements IFuwuView {
 	private TitleBar bar;
 
 	private FuwuPresenter p;
+
+	private ProgressDialog dialog;
 	@Override
 	public View initView(LayoutInflater inflater) {
 		// TODO Auto-generated method stub
@@ -42,10 +49,21 @@ public class FuwuFragment extends BaseFragment implements IFuwuView {
 		return mRootView;
 	}
 
+
+	@Override
+	public void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		if(dialog!=null&&dialog.isShowing()){
+
+			dialog.dismiss();
+		}
+	}
 	@Override
 	public void initData(Bundle savedInstanceState) {
+
 		// TODO Auto-generated method stub
-		p= new FuwuPresenter(this);
+		p= new FuwuPresenter(this,mContext);
 		//设置标题栏
 		bar.setLCR(null,"服务中心", null);
 		//获取数据
@@ -68,13 +86,39 @@ public class FuwuFragment extends BaseFragment implements IFuwuView {
 					//获取单个服务项
 					FuwuItem fuwuItem = tipInfo.fuwu_items.get(position);
 					//跳转到具体的服务请求的页面
+
 					//根据主项获取相应的子服务项
-					p.getSubS(fuwuItem.id);
+					p.getSubS(fuwuItem);
+
 				}
 			}
 		});
 	}
 
+	@Override
+	public void onSubData(String r,FuwuItem fuwuItem) {
+		// TODO Auto-generated method stub
+		//跳转到具体的服务页
+		PayFragment payFragment = new PayFragment();
+		Bundle b = new Bundle();
 
+		b.putString("r", r);
+
+		b.putString("id", fuwuItem.id);
+		b.putString("name", fuwuItem.name);
+		payFragment.setArguments(b);
+
+		SystemTools.jumpTActivity(mContext, payFragment);
+	}
+
+	@Override
+	public void isLoding(boolean b) {
+		dialog = new ProgressDialog(mContext);
+		if(b){
+			dialog.show();
+		}else{
+			dialog.dismiss();
+		}
+	}
 
 }
