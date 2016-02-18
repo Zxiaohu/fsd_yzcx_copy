@@ -57,7 +57,7 @@ public class PaiGongFragment extends BaseFragment implements TitleBarListener, O
 		
 		//获取上级页面传过来的数据
 		Bundle arguments = getArguments();
-		
+		//把上级传过来的数据赋值给成员变量
 		datas = arguments.getStringArray("data");
 		
 		
@@ -110,8 +110,8 @@ public class PaiGongFragment extends BaseFragment implements TitleBarListener, O
 			break;
 		case R.id.btn_pg_subit:
 			//选择地址
-			
 			p.submit();
+			
 			break;
 		default:
 			break;
@@ -141,6 +141,7 @@ public class PaiGongFragment extends BaseFragment implements TitleBarListener, O
 	@Override
 	public String[] getFuWuIds() {
 		// TODO Auto-generated method stub
+		//拿到服务的id返回
 		String arr[]=new String[]{datas[0],datas[2]};
 		return arr;
 	}

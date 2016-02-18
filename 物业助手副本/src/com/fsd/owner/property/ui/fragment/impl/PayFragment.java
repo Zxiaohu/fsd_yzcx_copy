@@ -10,7 +10,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.GridView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.fsd.owner.property.R;
 import com.fsd.owner.property.model.bean.ConfigInfo;
@@ -19,6 +21,8 @@ import com.fsd.owner.property.tools.ResTools;
 import com.fsd.owner.property.tools.SystemTools;
 import com.fsd.owner.property.tools.UiTools;
 import com.fsd.owner.property.ui.activiy.impl.TempActivity;
+import com.fsd.owner.property.ui.adapter.CommonAdapter;
+import com.fsd.owner.property.ui.adapter.ViewHolder;
 import com.fsd.owner.property.ui.fragment.base.BaseFragment;
 import com.fsd.owner.property.ui.view.TitleBar;
 import com.fsd.owner.property.ui.view.TitleBar.TitleBarListener;
@@ -32,8 +36,8 @@ public class PayFragment extends BaseFragment implements TitleBarListener {
 	@ViewInject(R.id.tb_fw_pay)
 	private TitleBar bar;
 
-	@ViewInject(R.id.lv_subservice)
-	private ListView lv_subservice;
+	@ViewInject(R.id.gv_subservice)
+	private GridView gv_subservice;
 
 	@Override
 	public View initView(LayoutInflater inflater) {
@@ -63,14 +67,26 @@ public class PayFragment extends BaseFragment implements TitleBarListener {
 
 		for (int i = 0; i < lists.size(); i++) {
 			test[i]=lists.get(i).getConfigvalue();
-			Spanned spanned = UiTools.getSpanned("#d55dd5",lists.get(i).getConfigvalue());
+			Spanned spanned = UiTools.getSpanned("#33B5E5",lists.get(i).getConfigvalue());
 			list.add(spanned);
 		}
 		//填充listView
-		lv_subservice.setAdapter(new ArrayAdapter<Spanned>(mContext, android.R.layout.simple_list_item_1,list));
+		
+		
+		gv_subservice.setAdapter(new CommonAdapter<Spanned>(mContext,list,R.layout.adapter_uc_item) {
+
+			@Override
+			public void convert(ViewHolder helper, Spanned item) {
+				// TODO Auto-generated method stub
+				TextView tv=helper.getView(R.id.tv_desc);
+				tv.setText(item);
+			}
+		});
+		
+		//gv_subservice.setAdapter(new ArrayAdapter<Spanned>(mContext, android.R.layout.simple_list_item_1,list));
 
 		//添加点击监听事件
-		lv_subservice.setOnItemClickListener(new OnItemClickListener() {
+		gv_subservice.setOnItemClickListener(new OnItemClickListener() {
 			
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
