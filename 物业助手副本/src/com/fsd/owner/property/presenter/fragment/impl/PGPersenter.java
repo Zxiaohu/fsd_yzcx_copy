@@ -86,8 +86,10 @@ public class PGPersenter {
 					public void success(String r) {
 						// TODO Auto-generated method stub
 						SystemTools.toastI(r);
+						
 						//成功后的操作
 						v.onSubmitSuccess();
+						
 					}
 
 					@Override

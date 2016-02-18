@@ -14,6 +14,7 @@ import com.fsd.owner.property.tools.UiTools;
 import com.fsd.owner.property.ui.activiy.impl.TempActivity;
 import com.fsd.owner.property.ui.fragment.IPGView;
 import com.fsd.owner.property.ui.fragment.base.BaseFragment;
+import com.fsd.owner.property.ui.fragment.impl.order.TaskListFragment;
 import com.fsd.owner.property.ui.view.SimpleItem;
 import com.fsd.owner.property.ui.view.TitleBar;
 import com.fsd.owner.property.ui.view.TitleBar.TitleBarListener;
@@ -149,7 +150,9 @@ public class PaiGongFragment extends BaseFragment implements TitleBarListener, O
 	@Override
 	public void onSubmitSuccess() {
 		// TODO Auto-generated method stub
-		
+		//跳转到详情页
+		SystemTools.jumpTActivity(mContext, new TaskListFragment());
+		((TempActivity)mContext).finish();
 	}
 
 	@Override

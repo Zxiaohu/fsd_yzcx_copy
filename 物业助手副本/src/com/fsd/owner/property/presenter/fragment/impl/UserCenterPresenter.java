@@ -7,6 +7,8 @@ import com.fsd.owner.property.tools.DataTools;
 import com.fsd.owner.property.tools.SharedPfTools;
 import com.fsd.owner.property.tools.SystemTools;
 import com.fsd.owner.property.ui.fragment.IUserCenterView;
+import com.google.gson.Gson;
+
 /****
  * UserCenterPresenter 用户中心的
  * @author zxh
@@ -26,24 +28,30 @@ public class UserCenterPresenter implements FetchListener {
 
 	/**判断用户是否登录**/
 	public void setUserIsLogin(){
-		//获取用户的手机号
-		String uname=SharedPfTools.queryStr(SPParam.PhoneNum);
-		//1.存在
-		if(uname!=null){
 
-			//如果缓存中有就从缓存中设置
-			if(SharedPfTools.queryStr(SPParam.UserInfo)!=null){
-				mView.onUserLogin(DataTools.getUserInfo());
+		try {
+
+			//获取用户的手机号
+			String uname = SharedPfTools.queryStr(SPParam.PhoneNum);
+			//1.存在
+			if (uname != null) {
+
+				//如果缓存中有就从缓存中设置
+				if (SharedPfTools.queryStr(SPParam.UserInfo) != null) {
+					mView.onUserLogin(DataTools.getUserInfo());
+				}
+
+				//通过手机号去查询用户的信息
+				fetchInfoDao.setUname(uname);
+				//发送请求
+				fetchInfoDao.sendHttp();
 			}
-			
-			//通过手机号去查询用户的信息
-			fetchInfoDao.setUname(uname);
-			//发送请求
-			fetchInfoDao.sendHttp();
-		}
-		//2.不存在
-		else{
-			mView.onUserNotLogin();
+			//2.不存在
+			else {
+				mView.onUserNotLogin();
+			}
+		}catch (Exception exception){
+			SystemTools.fail("系统异常");
 		}
 	}
 
@@ -53,9 +61,11 @@ public class UserCenterPresenter implements FetchListener {
 		try{
 			//同步数据到本地缓存
 			SharedPfTools.insertData(SPParam.UserInfo,userinfo);
-			/**获取用户的信息***/
-			UserInfo userinfo_obj = DataTools.getUserInfo();
+
+
 			/**回传数据**/
+			UserInfo userinfo_obj=new Gson().fromJson(DataTools.getJsonObj(userinfo),UserInfo.class);
+
 			mView.onUserLogin(userinfo_obj);
 		
 		}catch(Exception exception){

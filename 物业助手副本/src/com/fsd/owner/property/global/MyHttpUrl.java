@@ -1,6 +1,7 @@
 package com.fsd.owner.property.global;
 
 
+
 /**网络请求的地址**/
 public class MyHttpUrl {
 	
@@ -69,12 +70,13 @@ public class MyHttpUrl {
 	public static final String OWNER_INFO = URL + "roominfo.asp" + ROOT;
 	//查询诉求的URL
 	public static final String QUERY_APPEAL = URL + "complainlist.asp" + ROOT;
-	//查询设备主项的URL
-	public static final String Type_FACILITY = URL + "sbmaster.asp" + ROOT;
-	//查询设备子项的URL
-	public static final String SUBTYPE_FACILITY = URL + "sbsub.asp" + ROOT;
-	//查询保养记录的URL
-	public static final String QUERY_MAINTAIN = URL + "sbmaintain.asp" + ROOT;
+
+	public static final String PAIGONG_LIST=URL_YZ+"paigonglist.asp"+ROOT;//派工列表
+	
+	//派工进度
+	public static final String PAIGONG_RATE=URL+"paigongrate.asp"+ROOT;
+	public static final String PAIGONG_DETAIL=URL+"paigongdetail.asp"+ROOT;
+	
 	/**
 	 * 上传图片
 	 */

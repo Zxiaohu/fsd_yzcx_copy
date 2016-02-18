@@ -11,7 +11,7 @@ public enum SPParam {
 	/**验证码**/
 	YZM("YZM"),
 	/**用户信息**/
-	UserInfo("userinfo");
+	UserInfo("userinfo"), TaskListInfo("TaskListInfo");
 	private String name;
 	private SPParam(String name){
 		this.name=name;

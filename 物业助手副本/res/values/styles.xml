@@ -57,6 +57,16 @@
         <item name="android:textSize">@dimen/medium</item>
     </style>
 
+    
+    
+    <style name="style_lv_base">
+        <item name="android:divider">@color/white</item>
+        <item name="android:dividerHeight">@dimen/dimen_720maxspacing</item>
+        <item name="android:layout_margin">@dimen/dimen_720maxspacing</item>
+        <!-- <item name="android:background">@color/white</item> -->
+
+    </style>
+    
     <style name="style_uc_tv_base">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">0dp</item>

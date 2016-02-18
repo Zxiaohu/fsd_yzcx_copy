@@ -17,6 +17,7 @@ import com.fsd.owner.property.ui.activiy.impl.LoginActivity;
 import com.fsd.owner.property.ui.activiy.impl.TempActivity;
 import com.fsd.owner.property.ui.fragment.IUserCenterView;
 import com.fsd.owner.property.ui.fragment.base.BaseFragment;
+import com.fsd.owner.property.ui.fragment.impl.order.TaskListFragment;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
@@ -84,6 +85,7 @@ public class UserCenterFragment extends BaseFragment implements IUserCenterView,
 			break;
 		case R.id.tv_details:
 			//跳转到服务列表界面
+			SystemTools.jumpTActivity(mContext, new TaskListFragment());
 			break;
 		case R.id.tv_help:
 			//跳转到帮助信息界面

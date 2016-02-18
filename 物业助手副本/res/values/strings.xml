@@ -41,12 +41,11 @@ ComplainSubID	子服务项id
         <item>ComplainSubID</item>
     </string-array>
     <string-array name="budle_key2paigong">
-        <item >typeid</item>
-        <item >typename</item>
-        <item >subtypeid</item>
-        <item >subtypename</item>
+        <item>typeid</item>
+        <item>typename</item>
+        <item>subtypeid</item>
+        <item>subtypename</item>
     </string-array>
-    
     <string-array name="userinfo_item">
         <item>昵称</item>
         <item>住址</item>
@@ -56,5 +55,6 @@ ComplainSubID	子服务项id
     </string-array>
 
     <string name="fuwu_item">{"fuwu_items":[{"id":"service01","name":"日常报修"},{"id":"service02","name":"有偿服务"},{"id":"service03","name":"投诉与建议"},{"id":"service04","name":"更多待开发"}]}</string>
+ 
 
 </resources>
