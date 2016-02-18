@@ -96,4 +96,11 @@
         <item name="android:layout_marginLeft">@dimen/dimen_720largespacing</item>
         <item name="android:layout_marginRight">@dimen/dimen_720largespacing</item>
     </style>
+    <style name="style_btn_common" parent="@style/style_btn_base">
+        <item name="android:background">@drawable/seletor_btn</item>
+        <item name="android:layout_marginLeft">@dimen/dimen_720largespacing</item>
+        <item name="android:layout_marginRight">@dimen/dimen_720largespacing</item>
+        <item name="android:layout_marginTop">@dimen/dimen_720largespacing</item>
+        <item name="android:textColor">@color/red</item>
+    </style>
 </resources>

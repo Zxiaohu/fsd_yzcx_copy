@@ -31,6 +31,11 @@ public class UserCenterPresenter implements FetchListener {
 		//1.存在
 		if(uname!=null){
 
+			//如果缓存中有就从缓存中设置
+			if(SharedPfTools.queryStr(SPParam.UserInfo)!=null){
+				mView.onUserLogin(DataTools.getUserInfo());
+			}
+			
 			//通过手机号去查询用户的信息
 			fetchInfoDao.setUname(uname);
 			//发送请求

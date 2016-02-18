@@ -14,6 +14,8 @@ import android.widget.ListView;
 
 import com.fsd.owner.property.R;
 import com.fsd.owner.property.model.bean.ConfigInfo;
+import com.fsd.owner.property.tools.BudleTools;
+import com.fsd.owner.property.tools.ResTools;
 import com.fsd.owner.property.tools.SystemTools;
 import com.fsd.owner.property.tools.UiTools;
 import com.fsd.owner.property.ui.activiy.impl.TempActivity;
@@ -29,10 +31,10 @@ public class PayFragment extends BaseFragment implements TitleBarListener {
 
 	@ViewInject(R.id.tb_fw_pay)
 	private TitleBar bar;
-	
+
 	@ViewInject(R.id.lv_subservice)
 	private ListView lv_subservice;
-	
+
 	@Override
 	public View initView(LayoutInflater inflater) {
 		// TODO Auto-generated method stub
@@ -47,18 +49,18 @@ public class PayFragment extends BaseFragment implements TitleBarListener {
 		//获取页面传过来的数据
 		Bundle b = getArguments();
 		String subservices = b.getString("r");
-		String id = b.getString("id");
-		String name = b.getString("name");
-		
+		final String typeid = b.getString("id");
+		final String typename = b.getString("name");
+
 		//设置标题栏内容
-		bar.setLCR("返回",name,null);
+		bar.setLCR("返回",typename,null);
 		bar.setListener(this);
-		
+
 		//获取字符串中的内容
 		final List<ConfigInfo> lists=new Gson().fromJson(subservices, new TypeToken<List<ConfigInfo>>(){}.getType());
 		String test[]=new String[lists.size()];
 		List<Spanned> list = new ArrayList<Spanned>();
-		
+
 		for (int i = 0; i < lists.size(); i++) {
 			test[i]=lists.get(i).getConfigvalue();
 			Spanned spanned = UiTools.getSpanned("#d55dd5",lists.get(i).getConfigvalue());
@@ -66,18 +68,35 @@ public class PayFragment extends BaseFragment implements TitleBarListener {
 		}
 		//填充listView
 		lv_subservice.setAdapter(new ArrayAdapter<Spanned>(mContext, android.R.layout.simple_list_item_1,list));
-		
+
 		//添加点击监听事件
 		lv_subservice.setOnItemClickListener(new OnItemClickListener() {
-
+			
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				
+
+				//获取选中的 配置信息项（包含的是2级服务的数据）
 				ConfigInfo configInfo = lists.get(position);
+
+				
+				//生成要携带数据的b
+				String budle_name2paigong[]=new String[]{typeid,typename,configInfo.getConfigid(),configInfo.getConfigvalue()};
+
+				//Bundle b = BudleTools.getBundle(R.array.budle_key2paigong,budle_name2paigong);
+				Bundle b= new Bundle();
+				
+				//创建要跳转的fragment
+				PaiGongFragment paiGongFragment = new PaiGongFragment();
+
+				b.putStringArray("data", budle_name2paigong);
+				//携带数据
+				paiGongFragment.setArguments(b);
+
+				
 				//跳转到派工页
-				SystemTools.jumpTActivity(mContext,new PaiGongFragment());
+				SystemTools.jumpTActivity(mContext,paiGongFragment);
 			}
 		});
 	}
@@ -91,7 +110,7 @@ public class PayFragment extends BaseFragment implements TitleBarListener {
 	@Override
 	public void edit() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

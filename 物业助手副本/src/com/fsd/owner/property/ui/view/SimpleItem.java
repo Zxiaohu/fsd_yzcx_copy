@@ -46,4 +46,8 @@ public class SimpleItem extends LinearLayout {
 	public String getC(){
 		return tv_content.getText().toString().trim();
 	}
+	public void setSize(int dimen){
+		tv_tip.setTextSize(dimen);
+		tv_content.setTextSize(dimen);
+	}
 }

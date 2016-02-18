@@ -1,6 +1,7 @@
 package com.fsd.owner.property.tools;
 
 import java.util.Random;
+import java.util.regex.Pattern;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -14,6 +15,27 @@ import com.fsd.owner.property.model.bean.UserInfo;
 import com.google.gson.Gson;
 
 public class DataTools {
+	
+	
+	
+	
+	/**
+	 * 根据正则表达式去
+	 * @param Reg 正则表达式
+	 * @param content 匹配的内容
+	 * @return
+	 */
+	public static boolean isHaveIn(String Reg,String content){
+		Pattern pattern=Pattern.compile(Reg);		
+		if(pattern.matcher(content).find()){
+			return true;
+		};
+		return false;
+	}
+	
+	
+	
+	
 	/***
 	 * 去掉外层的中括号
 	 */

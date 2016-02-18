@@ -8,6 +8,7 @@
     <color name="blue1">#33B5E5</color>
     <color name="blue2">#0068B7</color>
     <color name="orange">#FFBB33</color>
+    <color name="orange1">#35FFBB33</color>
     <color name="blue3">#70E1FF</color>
     <color name="blue4">#cbf3f8</color>
     <color name="huise">#c0c0c0</color>
@@ -21,11 +22,38 @@
     <!-- 请求网络的参数 -->
     <!-- 手机号 -->
     <string name="uname">uname</string>
-	<string-array name="userinfo_item">
-	    <item >昵称</item>
-	    <item >住址</item>
-	    <item >收货地址</item>
-	    <item >积分</item>
-	</string-array>
-	<string name="fuwu_item">{"fuwu_items":[{"id":"service01","name":"日常报修"},{"id":"service02","name":"有偿服务"},{"id":"service03","name":"投诉与建议"},{"id":"service04","name":"更多待开发"}]}</string>
+
+    <!--
+对接参数
+houseid  房间名称id
+Complainer	派单人 业主姓名
+TelNumber	业主电话
+Content	        内容
+ComplainTypeID	主服务id
+ComplainSubID	子服务项id
+    -->
+    <string-array name="paigong_param">
+        <item>houseid</item>
+        <item>Complainer</item>
+        <item>TelNumber</item>
+        <item>Content</item>
+        <item>ComplainTypeID</item>
+        <item>ComplainSubID</item>
+    </string-array>
+    <string-array name="budle_key2paigong">
+        <item >typeid</item>
+        <item >typename</item>
+        <item >subtypeid</item>
+        <item >subtypename</item>
+    </string-array>
+    
+    <string-array name="userinfo_item">
+        <item>昵称</item>
+        <item>住址</item>
+        <item>收货地址</item>
+        <item>积分</item>
+    </string-array>
+
+    <string name="fuwu_item">{"fuwu_items":[{"id":"service01","name":"日常报修"},{"id":"service02","name":"有偿服务"},{"id":"service03","name":"投诉与建议"},{"id":"service04","name":"更多待开发"}]}</string>
+
 </resources>
