@@ -14,7 +14,24 @@
         android:id="@+id/et_pg_content"
         style="@style/style_et_update"
         android:layout_width="match_parent"
-        android:hint="请描述一下"
-        android:layout_height="@dimen/dimen_720height64" />
-	<View style="@style/style_border_etline" />
+        android:layout_height="@dimen/dimen_720height64"
+        android:hint="请描述一下" />
+
+    <View style="@style/style_border_etline" />
+
+    <View style="@style/style_border_hsline" />
+
+    <com.fsd.owner.property.ui.view.SimpleItem
+        android:id="@+id/si_select_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <View style="@style/style_border_hsline" />
+    <com.fsd.owner.property.ui.view.SimpleItem
+        android:id="@+id/si_select_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <View style="@style/style_border_hsline" />
+
 </LinearLayout>
