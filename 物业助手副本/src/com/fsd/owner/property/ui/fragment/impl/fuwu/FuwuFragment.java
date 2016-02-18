@@ -1,4 +1,4 @@
-package com.fsd.owner.property.ui.fragment.impl;
+package com.fsd.owner.property.ui.fragment.impl.fuwu;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;

@@ -5,8 +5,8 @@ import android.widget.TabHost.OnTabChangeListener;
 import com.fsd.owner.property.R;
 import com.fsd.owner.property.ui.activiy.IMainView;
 import com.fsd.owner.property.ui.activiy.base.BaseActivity;
-import com.fsd.owner.property.ui.fragment.impl.FuwuFragment;
-import com.fsd.owner.property.ui.fragment.impl.UserCenterFragment;
+import com.fsd.owner.property.ui.fragment.impl.fuwu.FuwuFragment;
+import com.fsd.owner.property.ui.fragment.impl.user.UserCenterFragment;
 import com.fsd.owner.property.ui.view.MyTabItem;
 
 

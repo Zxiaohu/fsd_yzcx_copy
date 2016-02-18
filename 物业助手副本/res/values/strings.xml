@@ -52,6 +52,7 @@ ComplainSubID	子服务项id
         <item>住址</item>
         <item>收货地址</item>
         <item>积分</item>
+        <item>密码</item>
     </string-array>
 
     <string name="fuwu_item">{"fuwu_items":[{"id":"service01","name":"日常报修"},{"id":"service02","name":"有偿服务"},{"id":"service03","name":"投诉与建议"},{"id":"service04","name":"更多待开发"}]}</string>

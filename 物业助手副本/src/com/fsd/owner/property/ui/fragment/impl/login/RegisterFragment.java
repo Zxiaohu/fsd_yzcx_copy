@@ -1,4 +1,4 @@
-package com.fsd.owner.property.ui.fragment.impl;
+package com.fsd.owner.property.ui.fragment.impl.login;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;

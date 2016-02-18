@@ -1,4 +1,4 @@
-package com.fsd.owner.property.ui.fragment.impl;
+package com.fsd.owner.property.ui.fragment.impl.user;
 
 import android.os.Bundle;
 import android.support.percent.PercentRelativeLayout;

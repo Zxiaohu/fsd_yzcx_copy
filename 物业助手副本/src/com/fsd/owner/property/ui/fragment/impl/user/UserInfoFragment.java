@@ -1,4 +1,4 @@
-package com.fsd.owner.property.ui.fragment.impl;
+package com.fsd.owner.property.ui.fragment.impl.user;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -39,6 +39,8 @@ public class UserInfoFragment extends BaseFragment implements IUserInfoView,OnCl
 	private SimpleItem si_houseinfo;
 	@ViewInject(R.id.si_score)
 	private SimpleItem si_score;
+	@ViewInject(R.id.si_update_pwd)
+	private SimpleItem si_pwd;
 	/**顶部头像**/
 	@ViewInject(R.id.ry_head)
 	private RelativeLayout ry_head;
@@ -81,8 +83,11 @@ public class UserInfoFragment extends BaseFragment implements IUserInfoView,OnCl
 		si_houseinfo.setOnClickListener(this);
 		//积分
 		si_score.setOnClickListener(this);
+		//密码
+		si_pwd.setOnClickListener(this);
 		//头像
 		ry_head.setOnClickListener(this);
+
 		//注销
 		btn_exit.setOnClickListener(this);
 	}
@@ -100,11 +105,15 @@ public class UserInfoFragment extends BaseFragment implements IUserInfoView,OnCl
 			break;
 		case R.id.si_houseinfo:
 			//查看住址的详细信息
-			
+
 			break;
 		case R.id.si_address:
 			//更新收货地址操作
 			update("update_address",si_address.getT(),si_address.getC());
+			break;
+		case R.id.si_update_pwd:
+			//修改密码
+			
 			break;
 		case R.id.si_score:
 
@@ -133,9 +142,9 @@ public class UserInfoFragment extends BaseFragment implements IUserInfoView,OnCl
 	public void setUserInfo(UserInfo userInfo) {
 		// TODO Auto-generated method stub
 		setContent(
-				new SimpleItem[]{si_nickname,si_houseinfo,si_address,si_score}, 
+				new SimpleItem[]{si_nickname,si_houseinfo,si_address,si_score,si_pwd}, 
 				ResTools.getArr(R.array.userinfo_item),
-				new String[]{userInfo.getNickname(),userInfo.getHouse_name(),userInfo.getAddress(),userInfo.getScore()});
+				new String[]{userInfo.getNickname(),userInfo.getHouse_name(),userInfo.getAddress(),userInfo.getScore(),""});
 	}
 
 	@Override
@@ -145,7 +154,7 @@ public class UserInfoFragment extends BaseFragment implements IUserInfoView,OnCl
 		ActivityCollector.finshAll();
 
 	}
-	
+
 	/**
 	 * 跳转修改
 	 * @param flag 修改的类型
