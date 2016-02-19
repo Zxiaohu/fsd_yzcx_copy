@@ -1,8 +1,5 @@
 package com.fsd.owner.property.model.httpdao;
 
-import android.app.ProgressDialog;
-import android.content.Context;
-
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.RequestParams;
@@ -27,9 +24,9 @@ public class NewFetchDao extends RequestCallBack<String>{
 		this.mParams = mParams;
 		this.listenner=listenner;
 	}
-	
 
-	
+
+
 	/**网络请求**/
 	public void fetch(){
 		HttpUtils httpUtils = new HttpUtils(6*3000);

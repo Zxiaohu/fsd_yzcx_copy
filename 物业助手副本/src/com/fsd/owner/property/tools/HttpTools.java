@@ -48,6 +48,10 @@ public class HttpTools {
 		}
 		return params;
 	}
-	
-	
+
+	public static RequestParams getParam(String key,String value){
+		RequestParams params = new RequestParams();
+			params.addBodyParameter(key,value);
+		return params;
+	}
 }

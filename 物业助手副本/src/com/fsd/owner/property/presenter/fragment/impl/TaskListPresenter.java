@@ -1,7 +1,5 @@
 package com.fsd.owner.property.presenter.fragment.impl;
 
-import java.util.List;
-
 import com.fsd.owner.property.global.HttpParam;
 import com.fsd.owner.property.global.MyHttpUrl;
 import com.fsd.owner.property.global.SPParam;
@@ -14,6 +12,8 @@ import com.fsd.owner.property.ui.fragment.ITaskListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.lidroid.xutils.http.RequestParams;
+
+import java.util.List;
 
 public class TaskListPresenter {
 	
@@ -38,7 +38,7 @@ public class TaskListPresenter {
 		if(cache!=null){
 			//获取数据成功后
 			List<TaskInfo> tasks = new Gson().fromJson(cache,new TypeToken<List<TaskInfo>>() {}.getType());
-			v.setData(tasks);
+			v.setData(tasks,false);
 		}
 		//设置请求的参数
 		RequestParams params = HttpTools.getParam(HttpParam.UNAME,tel);
@@ -54,7 +54,7 @@ public class TaskListPresenter {
 				//将数据存到缓存中去
 				
 				//获取数据成功后
-				v.setData(tasks);
+				v.setData(tasks, true);
 				
 			}
 			

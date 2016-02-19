@@ -1,6 +1,5 @@
 package com.fsd.owner.property.ui.fragment.impl.order;
-import java.util.List;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +7,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
 import com.fsd.owner.property.R;
 import com.fsd.owner.property.model.bean.TaskInfo;
 import com.fsd.owner.property.presenter.fragment.impl.TaskListPresenter;
@@ -25,6 +25,8 @@ import com.fsd.owner.property.ui.view.lv.MyListView;
 import com.fsd.owner.property.ui.view.lv.MyListView.OnRefreshListener;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
+
+import java.util.List;
 
 public class TaskListFragment extends BaseFragment implements ITaskListView, TitleBarListener, OnRefreshListener, OnItemClickListener {
 
@@ -76,12 +78,21 @@ public class TaskListFragment extends BaseFragment implements ITaskListView, Tit
 		// TODO Auto-generated method stub
 
 	}
+
+
 	private List<TaskInfo> tasks;
+
 	@Override
-	public void setData(List<TaskInfo> tasks) {
+	public void setData(List<TaskInfo> tasks, boolean b) {
 		// TODO Auto-generated method stub
 
 		this.tasks=tasks;
+
+
+		if(b){
+			//通知刷新完成
+			lv_list.onRefreshComplete();
+		}
 
 
 		//创建适配器
@@ -103,16 +114,15 @@ public class TaskListFragment extends BaseFragment implements ITaskListView, Tit
 			taskAdapter.notifyDataSetChanged();
 			//设置适配器
 			lv_list.setAdapter(taskAdapter);
-			//刷新完成
-			lv_list.onRefreshComplete();
+
 		}
 	}
 
 	@Override
 	public void onRefresh() {
 		// TODO Auto-generated method stub
+		//获取数据
 		p.getData();
-		SystemTools.toastI("刷新");
 	}
 
 	
@@ -120,9 +130,13 @@ public class TaskListFragment extends BaseFragment implements ITaskListView, Tit
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
 		// TODO Auto-generated method stub
-		
+
+
+
 		//跳转到详情页
-		SystemTools.jumpActivity(mContext, TaskActivity.class);
+		Intent intent =new Intent(mContext, TaskActivity.class);
+		intent.putExtra("orderid",this.tasks.get(position-1).getId());
+		startActivity(intent);
 		
 	}
 

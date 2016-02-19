@@ -82,14 +82,14 @@ public  class SharedPfTools {
 		M_EDITOR.commit();
 		
 	}
-	/**
-	 * 插入set数据
-	 * @param param
-	 * @param setContent
-	 */
-	public static void insertData(SPParam param,Set<String> setContent){
-		M_EDITOR.putStringSet(param.getName(),setContent).commit();
+
+
+	public static void insertData(String k,String content){
+		M_EDITOR.putString(k, content);
+		M_EDITOR.commit();
 	}
+
+
 	/**
 	 * 根据key查询String的数据
 	 * @param key
@@ -108,7 +108,9 @@ public  class SharedPfTools {
 		
 		return M_PREFERENCES.getStringSet(key,null);
 	}
-	
-	
-	 
+
+
+	public static String queryStr(String s) {
+		return M_PREFERENCES.getString(s, null);
+	}
 }

@@ -55,6 +55,8 @@ ComplainSubID	子服务项id
     </string-array>
 
     <string name="fuwu_item">{"fuwu_items":[{"id":"service01","name":"日常报修"},{"id":"service02","name":"有偿服务"},{"id":"service03","name":"投诉与建议"},{"id":"service04","name":"更多待开发"}]}</string>
- 
+    <string name="ceshi">测试</string>
+    <string name="oderid">complainid</string>
+
 
 </resources>
