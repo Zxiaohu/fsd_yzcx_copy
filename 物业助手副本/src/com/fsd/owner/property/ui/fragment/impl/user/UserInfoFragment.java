@@ -7,15 +7,15 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+
 import com.fsd.owner.property.R;
 import com.fsd.owner.property.model.bean.UserInfo;
 import com.fsd.owner.property.presenter.fragment.impl.UserInfoPresenter;
 import com.fsd.owner.property.tools.ActivityCollector;
 import com.fsd.owner.property.tools.BudleTools;
+import com.fsd.owner.property.tools.BudleTools.BParam;
 import com.fsd.owner.property.tools.ResTools;
 import com.fsd.owner.property.tools.SystemTools;
-import com.fsd.owner.property.tools.BudleTools.BParam;
-import com.fsd.owner.property.ui.activiy.impl.TempActivity;
 import com.fsd.owner.property.ui.fragment.IUserInfoView;
 import com.fsd.owner.property.ui.fragment.base.BaseFragment;
 import com.fsd.owner.property.ui.view.SimpleItem;
@@ -69,7 +69,7 @@ public class UserInfoFragment extends BaseFragment implements IUserInfoView,OnCl
 		// TODO Auto-generated method stub
 		//初始化p
 		mPresenter = new UserInfoPresenter(this);
-		bar.setLCR("返回","信息详情", null);
+		bar.setLCR("返回","信息详情", "更多");
 		bar.setListener(this);
 		//设置用户信息
 		mPresenter.setUserInfo();
@@ -173,12 +173,14 @@ public class UserInfoFragment extends BaseFragment implements IUserInfoView,OnCl
 	@Override
 	public void back() {
 		// TODO Auto-generated method stub
-		((TempActivity)mContext).finish();
+		getActivity().finish();
 	}
 
 	@Override
 	public void edit() {
 		// TODO Auto-generated method stub
-		//缺省
+		/***跳转到更多的用户信息详情的查询***/
+		UserInfoDetailFragment userInfoDetailFragment = UserInfoDetailFragment.getInstance();
+		SystemTools.jumpTActivity(getActivity(),userInfoDetailFragment);
 	}
 }
