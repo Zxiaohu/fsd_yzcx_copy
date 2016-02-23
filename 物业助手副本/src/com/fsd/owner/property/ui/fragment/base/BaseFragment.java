@@ -2,7 +2,6 @@ package com.fsd.owner.property.ui.fragment.base;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,7 +13,6 @@ public abstract class  BaseFragment extends Fragment{
 	
 	/**根布局**/
 	protected View mRootView;
-	
 	/***上下文**/
 	protected Context mContext;
 	

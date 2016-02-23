@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/dimen_720height"
     android:orientation="vertical"
-    android:padding="@dimen/dimen_720minspacing" >
+    android:padding="@dimen/dimen_720minspacing"
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/tv_title"

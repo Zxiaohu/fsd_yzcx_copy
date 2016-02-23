@@ -31,6 +31,17 @@ public class TaskProgressFragment extends BaseFragment implements ITaskProgressV
     private String mOrderid;
     private CommonAdapter<TaskProgress> mProgressAdapter;
 
+    //单列模式
+    private TaskProgressFragment() {}
+    private static TaskProgressFragment me=null;
+    //静态工厂方法
+    public static TaskProgressFragment getInstance() {
+        if (me == null) {
+            me = new TaskProgressFragment();
+        }
+        return me;
+    }
+
     @Override
     public View initView(LayoutInflater inflater) {
         mRootView = inflater.inflate(R.layout.fragment_taskprogress, null);

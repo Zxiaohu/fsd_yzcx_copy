@@ -353,5 +353,12 @@ import java.util.regex.Matcher;
          Pattern p = Pattern.compile(pattern);  
          Matcher m = p.matcher(str);  
          return m.matches();  
-     }  
+     }
+     /**提取文字中的所有数字***/
+     public static String filterNum(String s){
+         String regEx="[^0-9]";
+         Pattern p = Pattern.compile(regEx);
+         Matcher m = p.matcher(s);
+         return m.replaceAll("").trim();
+     }
  }  

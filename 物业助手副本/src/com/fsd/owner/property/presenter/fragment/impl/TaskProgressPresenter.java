@@ -29,7 +29,7 @@ public class TaskProgressPresenter {
 
             RequestParams papram = HttpTools.getParam(ResTools.getStr(R.string.oderid), orderid);
 
-            //读取缓存
+            //读取缓存中的task进度
             String cacheProgress = SharedPfTools.queryStr("task"+orderid);
 
             if (cacheProgress != null) {

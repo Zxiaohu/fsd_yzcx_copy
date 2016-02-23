@@ -19,6 +19,8 @@
     <color name="green">#669900</color>
     <color name="black">#000</color>
 
+    <string name="bule">#33B5E5</string>
+    <string name="red">#cc4444</string>
     <!-- 请求网络的参数 -->
     <!-- 手机号 -->
     <string name="uname">uname</string>
@@ -57,6 +59,10 @@ ComplainSubID	子服务项id
     <string name="fuwu_item">{"fuwu_items":[{"id":"service01","name":"日常报修"},{"id":"service02","name":"有偿服务"},{"id":"service03","name":"投诉与建议"},{"id":"service04","name":"更多待开发"}]}</string>
     <string name="ceshi">测试</string>
     <string name="oderid">complainid</string>
+    <string name="task_prigress">派工进度</string>
+    <string name="task_detail">派工详情</string>
+    <string name="configtype">configtype</string>
+    <string name="office_telinfo">telinfo</string>
 
 
 </resources>

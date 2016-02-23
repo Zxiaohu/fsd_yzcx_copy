@@ -1,12 +1,13 @@
 package com.fsd.owner.property.ui.view;
-import com.fsd.owner.property.R;
-import com.lidroid.xutils.ViewUtils;
-import com.lidroid.xutils.view.annotation.ViewInject;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.fsd.owner.property.R;
+import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.view.annotation.ViewInject;
 
 
 public class TitleBar extends LinearLayout implements View.OnClickListener {
@@ -74,10 +75,15 @@ public class TitleBar extends LinearLayout implements View.OnClickListener {
 			break;
 		}
 	}
-	
+
 	public interface TitleBarListener{
 		void back();
 		void edit();
 	}
-
+	/***
+	 * 设置中央的标题栏
+	 */
+	public void setTitle(String text){
+		c.setText(text);
+	}
 }

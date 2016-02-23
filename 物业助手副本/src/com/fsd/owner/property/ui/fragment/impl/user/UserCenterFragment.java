@@ -6,17 +6,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
+
 import com.fsd.owner.property.R;
 import com.fsd.owner.property.global.SPParam;
 import com.fsd.owner.property.model.bean.UserInfo;
 import com.fsd.owner.property.presenter.fragment.impl.UserCenterPresenter;
-import com.fsd.owner.property.tools.DataTools;
 import com.fsd.owner.property.tools.SharedPfTools;
 import com.fsd.owner.property.tools.SystemTools;
 import com.fsd.owner.property.ui.activiy.impl.LoginActivity;
 import com.fsd.owner.property.ui.activiy.impl.TempActivity;
 import com.fsd.owner.property.ui.fragment.IUserCenterView;
 import com.fsd.owner.property.ui.fragment.base.BaseFragment;
+import com.fsd.owner.property.ui.fragment.impl.help.TelsFragment;
 import com.fsd.owner.property.ui.fragment.impl.order.TaskListFragment;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
@@ -89,6 +90,7 @@ public class UserCenterFragment extends BaseFragment implements IUserCenterView,
 			break;
 		case R.id.tv_help:
 			//跳转到帮助信息界面
+			SystemTools.jumpTActivity(mContext, TelsFragment.getInstance());
 			break;
 		default:
 			break;

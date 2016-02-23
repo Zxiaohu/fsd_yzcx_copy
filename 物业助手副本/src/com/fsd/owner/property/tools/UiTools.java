@@ -9,6 +9,8 @@ import android.text.Spanned;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.Random;
+
 
 /***
  * UiTools
@@ -58,6 +60,21 @@ public class UiTools {
 		});
 		d.create().show();
 	}
+
+	public static String getRandColorCode(){
+		String r,g,b;
+		Random random = new Random();
+		r = Integer.toHexString(255).toUpperCase();
+		g = Integer.toHexString(255).toUpperCase();
+		b = Integer.toHexString(random.nextInt(255)).toUpperCase();
+
+		r = r.length()==1 ? "0" + r : r ;
+		g = g.length()==1 ? "0" + g : g ;
+		b = b.length()==1 ? "0" + b : b ;
+
+		return r+g+b;
+	}
+
 	public interface IDialogListener{
 		void select(int which);
 	}
