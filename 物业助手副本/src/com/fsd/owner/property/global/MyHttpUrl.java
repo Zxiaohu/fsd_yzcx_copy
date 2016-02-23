@@ -89,4 +89,6 @@ public class MyHttpUrl {
 	public static final String CONFIG = URL+"config.asp"+ROOT;
 	/**派工信息***/
 	public static final String PAIGONG = URL_YZ+"paigong.asp"+ROOT+"&submit=ok";
+	/**配置信息**/
+	public static final String ALLINFO = URL+"allinfo.asp"+ROOT;
 }

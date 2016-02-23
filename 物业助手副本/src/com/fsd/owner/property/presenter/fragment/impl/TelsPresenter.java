@@ -44,9 +44,11 @@ public class TelsPresenter {
             NewFetchDao dao = new NewFetchDao(MyHttpUrl.CONFIG, params, new NewFetchDao.IHttpListenner() {
                 @Override
                 public void success(String r) {
-                    SystemTools.toastI(r);
+
                     //将数据储存的缓存中
                     SharedPfTools.insertData(ResTools.getStr(R.string.office_telinfo), r);
+
+                    //解析数据
                     List<ConfigInfo> tels = new Gson().fromJson(r, new TypeToken<List<ConfigInfo>>() {
                     }
                             .getType());
@@ -55,7 +57,7 @@ public class TelsPresenter {
 
                 @Override
                 public void fail(String arg1) {
-
+                    SystemTools.fail("网络异常,请重试");
                 }
             });
 
